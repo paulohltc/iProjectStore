@@ -1,4 +1,4 @@
-package project;
+package mercadoria;
 
 public class MercadoriaJaCadastradaException extends Exception {
 	public MercadoriaJaCadastradaException() {

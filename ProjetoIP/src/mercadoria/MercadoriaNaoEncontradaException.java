@@ -1,4 +1,4 @@
-package project;
+package mercadoria;
 
 public class MercadoriaNaoEncontradaException extends Exception {
 	public MercadoriaNaoEncontradaException() {

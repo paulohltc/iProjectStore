@@ -1,4 +1,4 @@
-package project;
+package mercadoria;
 
 public interface RepositorioMercadoria {
 	public void inserir(Mercadoria mercadoria) 

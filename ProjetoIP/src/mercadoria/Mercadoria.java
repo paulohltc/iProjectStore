@@ -1,4 +1,4 @@
-package project;
+package mercadoria;
 
 public class Mercadoria {
 	private String nome;

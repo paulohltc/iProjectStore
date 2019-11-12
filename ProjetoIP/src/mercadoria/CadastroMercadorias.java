@@ -25,11 +25,14 @@ public class CadastroMercadorias {
 		return this.repositorio.existe(id);
 	}
 	
-	public void atualizar (Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {
-		this.repositorio.atualizar(mercadoria);
+	public void atualizar (int id, int preco) throws MercadoriaNaoEncontradaException {
+		this.repositorio.atualizar(id, preco);
 	}
 	
 	public Mercadoria procurar (int id) throws MercadoriaNaoEncontradaException {
 		return this.repositorio.procurar(id);
 	}
+
+	
+
 }

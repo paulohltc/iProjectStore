@@ -42,10 +42,9 @@ public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 		}
 	}
 	
-	public void atualizar (Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {
-		Mercadoria mercadorias = procurar(mercadoria.getId());
-		this.remover(mercadoria.getId());
-		this.inserir(mercadoria);
+	public void atualizar (int id, int preco) throws MercadoriaNaoEncontradaException {
+		Mercadoria mercadorias = procurar(id);
+		mercadorias.setPreco(preco);
 	}
 	
 	public Mercadoria procurar (int id) throws MercadoriaNaoEncontradaException {

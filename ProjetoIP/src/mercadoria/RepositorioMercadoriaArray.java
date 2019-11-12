@@ -29,9 +29,9 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		this.index -= 1;
 	}
 
-	public void atualizar(Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {
-		int i = this.getIndex(mercadoria.getId());
-		arrayMercadorias[i] = mercadoria;	
+	public void atualizar(int id, int preco) throws MercadoriaNaoEncontradaException {
+		int i = this.getIndex(id);
+		arrayMercadorias[i].setPreco(preco);
 	}
 	
 	public Mercadoria procurar(int id) throws MercadoriaNaoEncontradaException {

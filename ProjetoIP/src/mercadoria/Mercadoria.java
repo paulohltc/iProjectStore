@@ -6,10 +6,11 @@ public class Mercadoria {
 	private int id;
 	private double preco;
 	
-	public Mercadoria(String nome, String descricao, double preco) {
+	public Mercadoria(String nome, String descricao, double preco, int id) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
+		this.id = id;
 		
 	}
 

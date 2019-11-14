@@ -9,15 +9,11 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		this.index = 0;
 	}
 
-	public void inserir(Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
+	public void inserir(Mercadoria mercadoria){
 		if (this.index < this.arrayMercadorias.length) { 
 			this.arrayMercadorias[index] = mercadoria;
 			index +=1;
-		} else {
-			MercadoriaJaCadastradaException e;
-			e = new MercadoriaJaCadastradaException();
-			throw e;
-		}
+		} 
 	}
 
 	public void remover(int id) throws MercadoriaNaoEncontradaException {

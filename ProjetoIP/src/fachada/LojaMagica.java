@@ -1,13 +1,14 @@
 package fachada;
 
 import mercadoria.*;
+import vendas.*;
 public class LojaMagica {
 	private CadastroMercadorias mercadoria;
 	private CadastroVendas vendas;
 	
-	public LojaMagica (RepositorioMercadoria mercadoria,RepositorioVendas vendas) {
+	public LojaMagica (RepositorioMercadoria mercadoria,VendasInterface vendas) {
 		this.mercadoria = new CadastroMercadorias(mercadoria);
-		this.vendas
+		this.vendas = new CadastroVendas(vendas);
 	}
 	
 	public void cadastrarMercadoria (Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
@@ -40,5 +41,24 @@ public class LojaMagica {
 	
 	public Mercadoria procurarMercadoria (int id) throws MercadoriaNaoEncontradaException {
 		return this.mercadoria.procurar(id);
+	}
+	public void VendaInserir (Sale sale) throws ExisteVendaException{
+		this.vendas.VendaInserir(sale);
+	}
+
+	public void VendaRemover (String id) throws NaoExisteException {
+		this.vendas.VendaRemover(id);
+	}
+
+	public boolean VendaExiste (String id) throws NaoExisteException{
+		return this.vendas.VendaExiste(id);
+	}
+
+	public void VendaAtualizar (Sale sale) throws NaoExisteException {
+		this.vendas.VendaAtualizar(sale);
+	}
+
+	public Sale VendaProcurar (String id) throws NaoExisteException {
+		return this.vendas.VendaProcurar(id);
 	}
 }

@@ -4,6 +4,11 @@ public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 	private Mercadoria mercadoria;
 	private RepositorioMercadoriaLista proximo;
 	
+	public RepositorioMercadoriaLista( ) {
+		this.mercadoria = null;
+		this.proximo = null;
+	}
+	
 	public void inserir (Mercadoria mercadoria) {
 		if (this.mercadoria == null) {
 			this.mercadoria = mercadoria;

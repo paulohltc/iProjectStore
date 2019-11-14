@@ -1,12 +1,14 @@
 package fachada;
 
-import mercadoria.CadastroMercadorias;
-import mercadoria.Mercadoria;
-import mercadoria.MercadoriaJaCadastradaException;
-import mercadoria.MercadoriaNaoEncontradaException;
-
+import mercadoria.*;
 public class LojaMagica {
 	private CadastroMercadorias mercadoria;
+	private CadastroVendas vendas;
+	
+	public LojaMagica (RepositorioMercadoria mercadoria,RepositorioVendas vendas) {
+		this.mercadoria = new CadastroMercadorias(mercadoria);
+		this.vendas
+	}
 	
 	public void cadastrarMercadoria (Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
 		if (this.mercadoria.existe(mercadoria.getId())) {

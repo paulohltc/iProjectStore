@@ -111,7 +111,7 @@ public class LojaMagica {
 
 	    public Cliente procurar(String cpf)
 	            throws ClienteNaoEncontradoException {
-	        return this.repositorio.procurar(cpf);
+	        return this.cliente.procurar(cpf);
 	    }
 
 

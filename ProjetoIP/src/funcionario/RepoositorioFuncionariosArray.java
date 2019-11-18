@@ -1,4 +1,4 @@
-
+package funcionario;
 public class RepoositorioFuncionariosArray implements RepositorioFuncionarios {
 	private Funcionarios funcionarios[] = new Funcionarios[10];
 

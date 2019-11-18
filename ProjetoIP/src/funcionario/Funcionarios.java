@@ -1,4 +1,4 @@
-
+package funcionario;
 public class Funcionarios {
 	private String nome;
 	private int idade;

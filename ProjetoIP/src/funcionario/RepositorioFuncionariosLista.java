@@ -1,4 +1,4 @@
-
+package funcionario;
 public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 	private Funcionarios funcionario;
 	private RepositorioFuncionariosLista proximo;

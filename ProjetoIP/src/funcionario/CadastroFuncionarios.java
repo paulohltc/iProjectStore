@@ -1,4 +1,4 @@
-
+package funcionario;
 public class CadastroFuncionarios {
 private RepositorioFuncionarios repositorioFuncionarios;
 public CadastroFuncionarios(RepositorioFuncionarios repositorioFuncionarios) {

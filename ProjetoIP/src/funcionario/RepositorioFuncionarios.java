@@ -1,4 +1,4 @@
-
+package funcionario;
 public interface RepositorioFuncionarios {
 	public void inserir(Funcionarios funcionario);
 

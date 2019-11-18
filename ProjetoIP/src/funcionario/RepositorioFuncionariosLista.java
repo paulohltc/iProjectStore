@@ -37,15 +37,9 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 			return null;
 	}
 
-	public void atualizar(int cpf, int idade) {
-		if (this.funcionario != null) {
-			if (this.funcionario.getCpf() == cpf) {
-				this.funcionario.setIdade(idade);
-				
-			} else
-				 this.proximo.atualizar(cpf, idade);
-
-		} 
+	public void atualizar(Funcionarios funcionario,int cpf) {
+		Funcionarios removido= procurar(cpf);
+		removido=funcionario;
 			
 	}
 	

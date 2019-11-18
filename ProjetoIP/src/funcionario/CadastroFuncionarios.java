@@ -16,9 +16,9 @@ public void  removerFuncionarios(Funcionarios funcionario) throws FuncionarioIne
 	else 
 		throw new FuncionarioInexistenteException();
 }
-public void atualizarFuncioanrios(Funcionarios funcionario) throws FuncionarioInexistenteException{
+public void atualizarFuncioanrios(Funcionarios funcionario,int cpf) throws FuncionarioInexistenteException{
 	if(repositorioFuncionarios.existe(funcionario.getCpf())==false)
-		repositorioFuncionarios.atualizar(funcionario.getCpf(), funcionario.getIdade());
+		repositorioFuncionarios.atualizar(funcionario,cpf);
 	else 
 		throw new FuncionarioInexistenteException();
 }

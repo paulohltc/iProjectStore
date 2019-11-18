@@ -6,7 +6,7 @@ public interface RepositorioFuncionarios {
 
 	public Funcionarios procurar(int cpf);
 
-	public void atualizar(int cpf, int idade);
+	public void atualizar(Funcionarios funcionario,int cpf);
 
 	public boolean existe(int cpf);
 

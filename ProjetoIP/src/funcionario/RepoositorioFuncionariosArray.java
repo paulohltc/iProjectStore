@@ -22,7 +22,7 @@ public class RepoositorioFuncionariosArray implements RepositorioFuncionarios {
 		for (int i = 0; i < 10; i++) {
 			if (this.funcionarios[i] == null) {
 				i = 10;
-			} else if (this.funcionarios[i].getNome().equalsIgnoreCase(funcionario.getNome())) {
+			} else if (this.funcionarios[i].getCpf()==funcionario.getCpf()) {
 				if (i < 9) {
 					this.funcionarios[i] = this.funcionarios[i + 1];
 					this.funcionarios[i + 1] = null;
@@ -32,11 +32,12 @@ public class RepoositorioFuncionariosArray implements RepositorioFuncionarios {
 		}
 	}
 
-	public void atualizar(int cpf, int idade) {
-		for (int i = 0; i < 10; i++) {
-			if (this.funcionarios[i].getCpf() == cpf) {
-				this.funcionarios[i].setIdade(idade);
-			}
+	public void atualizar(Funcionarios funcionario,int cpf) {
+		Funcionarios removido=this.procurar(cpf);
+		if(removido!=null) {
+			removido=funcionario;
+		} else {
+			
 		}
 	}
 

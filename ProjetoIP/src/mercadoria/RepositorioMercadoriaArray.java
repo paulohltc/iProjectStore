@@ -1,19 +1,30 @@
 package mercadoria;
 
+import vendas.ExisteVendaException;
+import vendas.Sale;
+
 public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 	private Mercadoria[] arrayMercadorias;
 	private int index;
 	
 	public RepositorioMercadoriaArray () {
-		this.arrayMercadorias = new Mercadoria[50];
+		this.arrayMercadorias = new Mercadoria[0];
 		this.index = 0;
 	}
 
-	public void inserir(Mercadoria mercadoria){
-		if (this.index < this.arrayMercadorias.length) { 
-			this.arrayMercadorias[index] = mercadoria;
-			index +=1;
-		} 
+	public void inserir(Mercadoria mercadoria) throws MercadoriaJaCadastradaException{
+		Mercadoria[] aux = new Mercadoria[index + 1];
+		for (int i = 0; i <= index; i++) {
+			if (i < index)
+				aux[i] = arrayMercadorias[i];
+			else if(arrayMercadorias[i]==mercadoria)
+				throw new MercadoriaJaCadastradaException();
+			else
+				aux[i] = mercadoria;
+		}
+		index++;
+		arrayMercadorias = aux;
+	
 	}
 
 	public void remover(int id) throws MercadoriaNaoEncontradaException {

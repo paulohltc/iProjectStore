@@ -37,7 +37,8 @@ public class RepositorioArrayVendas implements VendasInterface {
 			else
 				aux[i] = Repoa[i];
 		}
-
+		size--;
+		Repoa=aux;
 	}
 
 	public void VendaAtualizar(Sale sale) throws NaoExisteException {

@@ -1,21 +1,29 @@
 package entregador;
 
+import mercadoria.Mercadoria;
+import mercadoria.MercadoriaJaCadastradaException;
+
 public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 	private Entregador[] entregadores;
 	private int index;
 
 	public RepositorioEntregadoresArray() {
-		entregadores = new Entregador[50];
+		entregadores = new Entregador[0];
 		index = 0;
 	}
 
 	public void inserirEntregador(Entregador entregador) throws EntregadorJaCadastroException {
-		if (entregadores[index] == entregador) {
-			throw new EntregadorJaCadastroException();
-		} else {
-			entregadores[index] = entregador;
-			index++;
+		Entregador[] aux = new Entregador[index + 1];
+		for (int i = 0; i <= index; i++) {
+			if (i < index)
+				aux[i] = entregadores[i];
+			else if(entregadores[i]==entregador)
+				throw new EntregadorJaCadastroException();
+			else
+				aux[i] = entregador;
 		}
+		index++;
+		entregadores = aux;
 	}
 
 	public void removerEntregador(String cpf) throws EntregadorNaoEncontradoException {

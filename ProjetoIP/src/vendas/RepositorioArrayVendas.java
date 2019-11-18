@@ -1,8 +1,12 @@
 package vendas;
 
 public class RepositorioArrayVendas implements VendasInterface {
-	int size = 0;
-	Sale[] Repoa = new Sale[size];
+	private int size = 0;
+	private Sale [] Repoa;
+	
+	public RepositorioArrayVendas() {
+		Repoa=new Sale[size];
+	}
 
 	public void VendaInserir(Sale sale) throws ExisteVendaException{
 		Sale[] aux = new Sale[size + 1];

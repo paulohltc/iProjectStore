@@ -4,8 +4,8 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 	private Mercadoria[] arrayMercadorias;
 	private int index;
 	
-	public RepositorioMercadoriaArray (int size) {
-		this.arrayMercadorias = new Mercadoria[size];
+	public RepositorioMercadoriaArray () {
+		this.arrayMercadorias = new Mercadoria[50];
 		this.index = 0;
 	}
 

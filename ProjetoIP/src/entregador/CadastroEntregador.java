@@ -32,4 +32,9 @@ public class CadastroEntregador {
 		return this.repositorio.procurarEntregador(cpf);
 	}
 
-}
+	public void inserirEntregador(Entregador entregadores) {
+		this.inserirEntregador(entregadores);
+		
+	}
+
+}	

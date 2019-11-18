@@ -1,14 +1,17 @@
 package fachada;
 
+import entregador.*;
 import mercadoria.*;
 import vendas.*;
 public class LojaMagica {
 	private CadastroMercadorias mercadoria;
 	private CadastroVendas vendas;
+	private CadastroEntregador entregador;
 	
-	public LojaMagica (RepositorioMercadoria mercadoria,VendasInterface vendas) {
+	public LojaMagica (RepositorioMercadoria mercadoria,VendasInterface vendas,RepositorioEntregadores entregador) {
 		this.mercadoria = new CadastroMercadorias(mercadoria);
 		this.vendas = new CadastroVendas(vendas);
+		this.entregador=new CadastroEntregador(entregador);
 	}
 	
 	public void cadastrarMercadoria (Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
@@ -61,4 +64,29 @@ public class LojaMagica {
 	public Sale VendaProcurar (String id) throws NaoExisteException {
 		return this.vendas.VendaProcurar(id);
 	}
-}
+	public void cadastrarEntregador(Entregador Entregadores) throws EntregadorJaCadastroException {
+		if (!this.entregador.verificarEntregador(Entregadores.getCpf())) {
+			this.entregador.inserirEntregador(Entregadores);
+		} else {
+			throw new EntregadorJaCadastroException();
+		}
+	}
+
+	public void removerEntregador(String cpf) throws EntregadorNaoEncontradoException {
+		this.entregador.removerEntregador(cpf);
+	}
+
+	public boolean verificarEntregador(String cpf) {
+		return this.entregador.verificarEntregador(cpf);
+	}
+
+	public void atualizarTransporteEntregador(String cpf, String transporte) throws EntregadorNaoEncontradoException {
+		this.entregador.atualizarTransporteEntregador(cpf, transporte);
+	}
+
+	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException {
+		return this.entregador.procurarEntregador(cpf);
+	}
+
+}	
+

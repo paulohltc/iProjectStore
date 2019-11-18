@@ -36,5 +36,5 @@ public class Entregador {
 	public void setQuantidadeEntregas(int quantidadeEntregas) {
 		QuantidadeEntregas = quantidadeEntregas;
 	}
-
+//oi :)//
 }

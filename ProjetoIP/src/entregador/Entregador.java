@@ -5,12 +5,12 @@ public class Entregador {
 	private String cpf;
 	private String transporte;
 	private int QuantidadeEntregas;
-	private double preçoPorDistancia;
-	public double getPreçoPorDistancia() {
-		return preçoPorDistancia;
+	private double precoPorDistancia;
+	public double getPrecoPorDistancia() {
+		return precoPorDistancia;
 	}
-	public void setPreçoPorDistancia(double preçoPorDistancia) {
-		this.preçoPorDistancia = preçoPorDistancia;
+	public void setPrecoPorDistancia(double precoPorDistancia) {
+		this.precoPorDistancia = precoPorDistancia;
 	}
 	public String getNome() {
 		return nome;

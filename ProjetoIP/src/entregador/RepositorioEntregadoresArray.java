@@ -4,8 +4,8 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 	private Entregador[] entregadores;
 	private int index;
 
-	public RepositorioEntregadoresArray(int size) {
-		entregadores = new Entregador[size];
+	public RepositorioEntregadoresArray() {
+		entregadores = new Entregador[50];
 		index = 0;
 	}
 

@@ -5,6 +5,7 @@ private VendasInterface vendas;
 public CadastroVendas (VendasInterface repo) {
 	vendas=repo;
 }
+
 public void VendaInserir (Sale sale) throws ExisteVendaException{
 	this.vendas.VendaInserir(sale);
 }

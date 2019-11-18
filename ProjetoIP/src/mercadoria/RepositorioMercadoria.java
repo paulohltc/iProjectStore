@@ -1,7 +1,8 @@
 package mercadoria;
 
 public interface RepositorioMercadoria {
-	public void inserir(Mercadoria mercadoria) ;
+	public void inserir(Mercadoria mercadoria)
+			throws MercadoriaJaCadastradaException;
 
 	public void remover(int id)
 			throws MercadoriaNaoEncontradaException;

@@ -1,5 +1,6 @@
 package fachada;
 
+import Cliente.*;
 import entregador.*;
 import mercadoria.*;
 import vendas.*;
@@ -7,11 +8,13 @@ public class LojaMagica {
 	private CadastroMercadorias mercadoria;
 	private CadastroVendas vendas;
 	private CadastroEntregador entregador;
+	private CadastroCliente cliente;
 	
-	public LojaMagica (RepositorioMercadoria mercadoria,VendasInterface vendas,RepositorioEntregadores entregador) {
+	public LojaMagica (RepositorioMercadoria mercadoria,VendasInterface vendas,RepositorioEntregadores entregador,RepositorioCliente cliente) {
 		this.mercadoria = new CadastroMercadorias(mercadoria);
 		this.vendas = new CadastroVendas(vendas);
 		this.entregador=new CadastroEntregador(entregador);
+		this.cliente=new CadastroCliente(cliente);
 	}
 	
 	public void cadastrarMercadoria (Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
@@ -87,6 +90,30 @@ public class LojaMagica {
 	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException {
 		return this.entregador.procurarEntregador(cpf);
 	}
+	 public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException, LimiteClientesAtingidoException {
+	        if (!this.cliente.existe(cliente.getCpf())) {
+	            this.cliente.inserir(cliente);
+	        } else {
+	            ClienteJaCadastradoException e;
+	            e = new ClienteJaCadastradoException();
+	            throw e;
+	        }
+	    }
+
+	 public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
+	        this.cliente.atualizar(cliente);
+	    }
+
+	    public void remover(String cpf)
+	            throws ClienteNaoEncontradoException {
+	        this.cliente.remover(cpf);
+	    }
+
+	    public Cliente procurar(String cpf)
+	            throws ClienteNaoEncontradoException {
+	        return this.repositorio.procurar(cpf);
+	    }
+
 
 }	
 

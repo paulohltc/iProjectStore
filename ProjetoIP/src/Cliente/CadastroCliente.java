@@ -36,5 +36,8 @@ public class CadastroCliente {
 	        return this.repositorio.existe(cpf);
 	        	
 	    }
+	    public void inserir(Cliente cliente) {
+	    	this.repositorio.inserir(cliente);
+	    }
 
 }

@@ -59,5 +59,5 @@ this.cost=0.0;
 	public void setCost(Long distance, double price, double entregador,int quantidade) {
 		this.cost = distance * entregador + price*quantidade;
 	}
-
+//sefude paulo
 }

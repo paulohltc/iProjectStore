@@ -38,7 +38,7 @@ public class LojaMagica {
 		this.mercadoria.existe(id);
 	}
 	
-	public void atualizarMercadoria (int id, int preco) throws MercadoriaNaoEncontradaException {
+	public void atualizarMercadoria (int id, double preco) throws MercadoriaNaoEncontradaException {
 		if (this.mercadoria.existe(id)) {
 			this.mercadoria.atualizar(id, preco);
 		} else {
@@ -128,13 +128,13 @@ public class LojaMagica {
 	    	else 
 	    		throw new FuncionarioInexistenteException();
 	    }
-	    public void atualizarFuncioanrios(Funcionarios funcionario,int cpf) throws FuncionarioInexistenteException{
+	    public void atualizarFuncioanrios(Funcionarios funcionario,String cpf) throws FuncionarioInexistenteException{
 	    	if(this.funcionario.existe(funcionario.getCpf())==false)
 	    		this.funcionario.atualizar(funcionario,cpf);
 	    	else 
 	    		throw new FuncionarioInexistenteException();
 	    }
-	    public Funcionarios procurarFuncionario(int cpf)throws FuncionarioInexistenteException {
+	    public Funcionarios procurarFuncionario(String cpf)throws FuncionarioInexistenteException {
 	    	if(this.funcionario.existe(cpf)==true) 
 	    		throw new FuncionarioInexistenteException();
 	    	

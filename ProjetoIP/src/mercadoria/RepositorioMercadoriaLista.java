@@ -3,24 +3,26 @@ package mercadoria;
 public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 	private Mercadoria mercadoria;
 	private RepositorioMercadoriaLista proximo;
-	
-	public RepositorioMercadoriaLista( ) {
+
+	public RepositorioMercadoriaLista() {
 		this.mercadoria = null;
 		this.proximo = null;
 	}
-	
-	public void inserir (Mercadoria mercadoria) {
+
+	public void inserir(Mercadoria mercadoria) {
 		if (this.mercadoria == null) {
 			this.mercadoria = mercadoria;
 			this.proximo = new RepositorioMercadoriaLista();
 		} else {
 			this.proximo.inserir(mercadoria);
+
 		}
+
 	}
-	
-	public void remover (int id) throws MercadoriaNaoEncontradaException {
+
+	public void remover(int id) throws MercadoriaNaoEncontradaException {
 		Mercadoria encontrada = this.procurar(id);
-		
+
 		if (this.mercadoria != null) {
 			if (this.mercadoria.equals(encontrada)) {
 				this.mercadoria = this.proximo.mercadoria;
@@ -34,8 +36,8 @@ public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 			throw e;
 		}
 	}
-	
-	public boolean existe (int id) {
+
+	public boolean existe(int id) {
 		if (this.mercadoria != null) {
 			if (this.mercadoria.getId() == id) {
 				return true;
@@ -46,13 +48,13 @@ public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 			return false;
 		}
 	}
-	
-	public void atualizar (int id, int preco) throws MercadoriaNaoEncontradaException {
+
+	public void atualizar(int id, double preco) throws MercadoriaNaoEncontradaException {
 		Mercadoria mercadorias = procurar(id);
 		mercadorias.setPreco(preco);
 	}
-	
-	public Mercadoria procurar (int id) throws MercadoriaNaoEncontradaException {
+
+	public Mercadoria procurar(int id) throws MercadoriaNaoEncontradaException {
 		Mercadoria encontrada;
 		encontrada = null;
 		if (this.mercadoria != null) {
@@ -69,4 +71,3 @@ public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 		return encontrada;
 	}
 }
-

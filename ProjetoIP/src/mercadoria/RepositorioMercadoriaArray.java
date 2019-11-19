@@ -6,13 +6,13 @@ import vendas.Sale;
 public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 	private Mercadoria[] arrayMercadorias;
 	private int index;
-	
-	public RepositorioMercadoriaArray () {
+
+	public RepositorioMercadoriaArray() {
 		this.arrayMercadorias = new Mercadoria[0];
 		this.index = 0;
 	}
 
-	public void inserir(Mercadoria mercadoria) throws MercadoriaJaCadastradaException{
+	public void inserir(Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
 		Mercadoria[] aux = new Mercadoria[index + 1];
 		for (int i = 0; i <= index; i++) {
 			if (i < index)
@@ -24,7 +24,6 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		}
 		index++;
 		arrayMercadorias = aux;
-	
 	}
 
 	public void remover(int id) throws MercadoriaNaoEncontradaException {
@@ -36,15 +35,15 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		this.index -= 1;
 	}
 
-	public void atualizar(int id, int preco) throws MercadoriaNaoEncontradaException {
+	public void atualizar(int id, double preco) throws MercadoriaNaoEncontradaException {
 		int i = this.getIndex(id);
 		arrayMercadorias[i].setPreco(preco);
 	}
-	
+
 	public Mercadoria procurar(int id) throws MercadoriaNaoEncontradaException {
 		Mercadoria encontrada = null;
 		boolean achou = false;
-		for (int i = 0; i <this.index && !achou; i++) {
+		for (int i = 0; i < this.index && !achou; i++) {
 			if (this.arrayMercadorias[i].getId() == id) {
 				encontrada = this.arrayMercadorias[i];
 				achou = true;
@@ -71,7 +70,7 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		}
 		return achou;
 	}
-	
+
 	public Mercadoria[] getArrayMercadorias() {
 		return arrayMercadorias;
 	}

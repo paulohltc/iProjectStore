@@ -27,9 +27,9 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 		}
 	}
 
-	public Funcionarios procurar(int cpf) {
+	public Funcionarios procurar(String cpf) {
 		if (this.funcionario != null) {
-			if (this.funcionario.getCpf() == cpf)
+			if (this.funcionario.getCpf().equals(cpf))
 				return this.funcionario;
 			else
 				return this.proximo.procurar(cpf);
@@ -37,15 +37,15 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 			return null;
 	}
 
-	public void atualizar(Funcionarios funcionario,int cpf) {
+	public void atualizar(Funcionarios funcionario,String cpf) {
 		Funcionarios removido= procurar(cpf);
 		removido=funcionario;
 			
 	}
 	
-	public boolean existe(int cpf) {
+	public boolean existe(String cpf) {
 		if(this.funcionario!=null) {
-			if(this.funcionario.getCpf()==cpf)
+			if(this.funcionario.getCpf().equals(cpf))
 				return true;
 			else
 				return this.proximo.existe(cpf);

@@ -22,7 +22,7 @@ public class RepoositorioFuncionariosArray implements RepositorioFuncionarios {
 		for (int i = 0; i < 10; i++) {
 			if (this.funcionarios[i] == null) {
 				i = 10;
-			} else if (this.funcionarios[i].getCpf()==funcionario.getCpf()) {
+			} else if (this.funcionarios[i].getCpf().equals(funcionario.getCpf())) {
 				if (i < 9) {
 					this.funcionarios[i] = this.funcionarios[i + 1];
 					this.funcionarios[i + 1] = null;
@@ -32,7 +32,7 @@ public class RepoositorioFuncionariosArray implements RepositorioFuncionarios {
 		}
 	}
 
-	public void atualizar(Funcionarios funcionario,int cpf) {
+	public void atualizar(Funcionarios funcionario,String cpf) {
 		Funcionarios removido=this.procurar(cpf);
 		if(removido!=null) {
 			removido=funcionario;
@@ -41,18 +41,18 @@ public class RepoositorioFuncionariosArray implements RepositorioFuncionarios {
 		}
 	}
 
-	public Funcionarios procurar(int cpf) {
+	public Funcionarios procurar(String cpf) {
 		for (int i = 0; i < 10; i++) {
-			if (this.funcionarios[i].getCpf() == cpf)
+			if (this.funcionarios[i].getCpf().equals(cpf) )
 				return this.funcionarios[i];
 
 		}
 		return null;
 	}
 
-	public boolean existe(int cpf) {
+	public boolean existe(String cpf) {
 		for (int i = 0; i < 10; i++) {
-			if(this.funcionarios[i].getCpf()==cpf) {
+			if(this.funcionarios[i].getCpf().equals(cpf)) {
 				return true;
 			}
 		}return false;

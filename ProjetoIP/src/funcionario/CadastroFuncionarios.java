@@ -16,13 +16,13 @@ public void  removerFuncionarios(Funcionarios funcionario) throws FuncionarioIne
 	else 
 		throw new FuncionarioInexistenteException();
 }
-public void atualizarFuncioanrios(Funcionarios funcionario,int cpf) throws FuncionarioInexistenteException{
+public void atualizarFuncioanrios(Funcionarios funcionario,String cpf) throws FuncionarioInexistenteException{
 	if(repositorioFuncionarios.existe(funcionario.getCpf())==false)
 		repositorioFuncionarios.atualizar(funcionario,cpf);
 	else 
 		throw new FuncionarioInexistenteException();
 }
-public Funcionarios procurarFuncionario(int cpf)throws FuncionarioInexistenteException {
+public Funcionarios procurarFuncionario(String cpf)throws FuncionarioInexistenteException {
 	if(repositorioFuncionarios.existe(cpf)==true) 
 		throw new FuncionarioInexistenteException();
 	
@@ -36,13 +36,13 @@ public void inserir(Funcionarios funcionario) {
 public void remover(Funcionarios funcionario) {
 	this.repositorioFuncionarios.remover (funcionario);
 }
-public boolean existe(int cpf) {
+public boolean existe(String cpf) {
 	return this.repositorioFuncionarios.existe(cpf);
 }
-public Funcionarios procurar(int cpf) {
+public Funcionarios procurar(String cpf) {
 	return this.repositorioFuncionarios.procurar(cpf);
 }
-public void atualizar(Funcionarios funcionario,int cpf) {
+public void atualizar(Funcionarios funcionario,String cpf) {
 	this.repositorioFuncionarios.atualizar (funcionario,cpf);
 }
 }

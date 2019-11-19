@@ -1,21 +1,20 @@
 package Cliente;
+import Pessoa.Pessoa;
 
-public class Cliente {
+public class Cliente extends Pessoa{
 
-	private String cpf;
-	private String nome;
 	private String especie;
-	private String contato;
 	
 	public Cliente(String nome, String cpf, String especie, String contato) {
-		this.nome = nome;
-		this.cpf = cpf;
+		super(nome, cpf, contato);
 		this.especie = especie;
-		this.contato = contato;
+	
 }
-	public String getEspecie() { return especie; }
+	public String getEspecie() { 
+		return especie; 
+		}
     
-    public String getContato() { return contato; }
-    
-    public String getCpf() { return cpf; }
+	public void setEspecie(String especie) {
+		this.especie = especie;
+	}
 }

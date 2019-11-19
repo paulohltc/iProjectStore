@@ -4,10 +4,10 @@ public interface RepositorioFuncionarios {
 
 	public void remover(Funcionarios funcionario);
 
-	public Funcionarios procurar(int cpf);
+	public Funcionarios procurar(String cpf);
 
-	public void atualizar(Funcionarios funcionario,int cpf);
+	public void atualizar(Funcionarios funcionario,String cpf);
 
-	public boolean existe(int cpf);
+	public boolean existe(String cpf);
 
 }

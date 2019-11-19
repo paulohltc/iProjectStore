@@ -4,17 +4,20 @@ import Cliente.*;
 import entregador.*;
 import mercadoria.*;
 import vendas.*;
+import funcionario.*;
 public class LojaMagica {
 	private CadastroMercadorias mercadoria;
 	private CadastroVendas vendas;
 	private CadastroEntregador entregador;
 	private CadastroCliente cliente;
+	private CadastroFuncionarios funcionario;
 	
-	public LojaMagica (RepositorioMercadoria mercadoria,VendasInterface vendas,RepositorioEntregadores entregador,RepositorioCliente cliente) {
+	public LojaMagica (RepositorioMercadoria mercadoria,VendasInterface vendas,RepositorioEntregadores entregador,RepositorioCliente cliente,RepositorioFuncionarios funcionario) {
 		this.mercadoria = new CadastroMercadorias(mercadoria);
 		this.vendas = new CadastroVendas(vendas);
 		this.entregador=new CadastroEntregador(entregador);
 		this.cliente=new CadastroCliente(cliente);
+		this.funcionario=new CadastroFuncionarios(funcionario);
 	}
 	
 	public void cadastrarMercadoria (Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
@@ -112,6 +115,32 @@ public class LojaMagica {
 	    public Cliente procurar(String cpf)
 	            throws ClienteNaoEncontradoException {
 	        return this.cliente.procurar(cpf);
+	    }
+	    public void cadastrarFuncionarios(Funcionarios funcionario) throws FuncionarioJaCadastradoException  {
+	    	if(!this.funcionario.existe(funcionario.getCpf()))
+	    		this.funcionario.inserir(funcionario);
+	    	else 
+	    		throw new FuncionarioJaCadastradoException();
+	    }
+	    public void  removerFuncionarios(Funcionarios funcionario) throws FuncionarioInexistenteException{
+	    	if(this.funcionario.existe(funcionario.getCpf())==false)
+	    		this.funcionario.remover(funcionario);
+	    	else 
+	    		throw new FuncionarioInexistenteException();
+	    }
+	    public void atualizarFuncioanrios(Funcionarios funcionario,int cpf) throws FuncionarioInexistenteException{
+	    	if(this.funcionario.existe(funcionario.getCpf())==false)
+	    		this.funcionario.atualizar(funcionario,cpf);
+	    	else 
+	    		throw new FuncionarioInexistenteException();
+	    }
+	    public Funcionarios procurarFuncionario(int cpf)throws FuncionarioInexistenteException {
+	    	if(this.funcionario.existe(cpf)==true) 
+	    		throw new FuncionarioInexistenteException();
+	    	
+	    	return this.funcionario.procurar(cpf);
+	    	
+	    		
 	    }
 
 

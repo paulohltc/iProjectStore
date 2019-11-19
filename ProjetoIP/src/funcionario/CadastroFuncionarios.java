@@ -30,4 +30,19 @@ public Funcionarios procurarFuncionario(int cpf)throws FuncionarioInexistenteExc
 	
 		
 }
+public void inserir(Funcionarios funcionario) {
+	this.repositorioFuncionarios.inserir(funcionario);
+}
+public void remover(Funcionarios funcionario) {
+	this.repositorioFuncionarios.remover (funcionario);
+}
+public boolean existe(int cpf) {
+	return this.repositorioFuncionarios.existe(cpf);
+}
+public Funcionarios procurar(int cpf) {
+	return this.repositorioFuncionarios.procurar(cpf);
+}
+public void atualizar(Funcionarios funcionario,int cpf) {
+	this.repositorioFuncionarios.atualizar (funcionario,cpf);
+}
 }

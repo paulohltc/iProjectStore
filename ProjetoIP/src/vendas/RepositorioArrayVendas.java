@@ -43,8 +43,10 @@ public class RepositorioArrayVendas implements VendasInterface {
 
 	public void VendaAtualizar(Sale sale) throws NaoExisteException {
 		for (int i = 0; i < size; i++) {
-			if (Repoa[i].getSaleid().equals(sale.getSaleid()))
+			if (Repoa[i].getSaleid().equals(sale.getSaleid())) {
 				Repoa[i] = sale;
+				i=size;
+			}
 			else if (i == size - 1)
 				throw new NaoExisteException();
 		}

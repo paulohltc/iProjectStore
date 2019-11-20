@@ -5,25 +5,25 @@ public CadastroFuncionarios(RepositorioFuncionarios repositorioFuncionarios) {
 	this.repositorioFuncionarios=repositorioFuncionarios;
 }
 public void cadastrarFuncionarios(Funcionarios funcionario) throws FuncionarioJaCadastradoException  {
-	if(repositorioFuncionarios.existe(funcionario.getCpf())==false)
+	if(!repositorioFuncionarios.existe(funcionario.getCpf()))
 	repositorioFuncionarios.inserir(funcionario);
 	else 
 		throw new FuncionarioJaCadastradoException();
 }
 public void  removerFuncionarios(Funcionarios funcionario) throws FuncionarioInexistenteException{
-	if(repositorioFuncionarios.existe(funcionario.getCpf())==false)
+	if(repositorioFuncionarios.existe(funcionario.getCpf()))
 		repositorioFuncionarios.remover(funcionario);
 	else 
 		throw new FuncionarioInexistenteException();
 }
 public void atualizarFuncioanrios(Funcionarios funcionario,String cpf) throws FuncionarioInexistenteException{
-	if(repositorioFuncionarios.existe(funcionario.getCpf())==false)
+	if(repositorioFuncionarios.existe(funcionario.getCpf()))
 		repositorioFuncionarios.atualizar(funcionario,cpf);
 	else 
 		throw new FuncionarioInexistenteException();
 }
 public Funcionarios procurarFuncionario(String cpf)throws FuncionarioInexistenteException {
-	if(repositorioFuncionarios.existe(cpf)==true) 
+	if(repositorioFuncionarios.existe(cpf)) 
 		throw new FuncionarioInexistenteException();
 	
 	return repositorioFuncionarios.procurar(cpf);

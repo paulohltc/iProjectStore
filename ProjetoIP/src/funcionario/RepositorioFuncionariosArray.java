@@ -41,17 +41,18 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 		size--;
 		funcionarios=aux;
 	}
-	public void atualizar(Funcionarios funcionario,String cpf) {
-		Funcionarios removido=this.procurar(cpf);
-		if(removido!=null) {
-			removido=funcionario;
-		} else {
-			
+
+	public void atualizar (Funcionarios funcionario,String cpf){
+		for (int i = 0; i < size; i++) {
+			if (funcionarios[i].getCpf().equals(cpf)) {
+				funcionarios[i] = funcionario;
+				i=size;
+			}
 		}
 	}
 
 	public Funcionarios procurar(String cpf) {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < size; i++) {
 			if (this.funcionarios[i].getCpf().equals(cpf) )
 				return this.funcionarios[i];
 
@@ -60,7 +61,7 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 	}
 
 	public boolean existe(String cpf) {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < size; i++) {
 			if(this.funcionarios[i].getCpf().equals(cpf)) {
 				return true;
 			}

@@ -78,9 +78,9 @@ public class Main {
  
                         System.out.println("Para cadastrar uma mercadoria, digite o que se pede:");
                         System.out.println("Nome da mercadoria: ");
-                        String nomeM = in.next();
+                        String nomeM = in.nextLine();
                         System.out.println("Descricao da mercadoria: ");
-                        String descricaoM = in.next();
+                        String descricaoM = in.nextLine();
                         System.out.println("Preco da mercadoria: ");
                         double precoM = in.nextDouble();
                         System.out.println("Identificador da mercadoria: ");
@@ -125,8 +125,10 @@ public class Main {
                         int idM = in.nextInt();
  
                         try {
- 
                             lojaMagica.existeMercadoria(idM);
+                            System.out.println("Insira o novo nome da mercadoria");
+                            String nomeM = in.nextLine();
+                   
                             System.out.println("Insira o novo preco da mercadoria");
                             double precoM = in.nextDouble();
                             Mercadoria objMercadoria = new Mercadoria(idM, precoM);

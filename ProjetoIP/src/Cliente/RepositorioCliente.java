@@ -1,13 +1,13 @@
 package Cliente;
 public interface RepositorioCliente {
 	
-	void atualizar(Cliente cliente) throws ClienteNaoEncontradoException;
+	public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException;
 	
-	void remover(String cpf) throws ClienteNaoEncontradoException;
+	public void remover(String cpf) throws ClienteNaoEncontradoException;
 	
-	Cliente procurar(String cpf) throws ClienteNaoEncontradoException;
+	public Cliente procurar(String cpf) throws ClienteNaoEncontradoException;
         
-	boolean existe(String cpf);
+	public boolean existe(String cpf);
 	
-	void inserir(Cliente cliente); 
+	public void inserir(Cliente cliente); 
 }

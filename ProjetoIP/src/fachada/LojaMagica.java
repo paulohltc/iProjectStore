@@ -20,6 +20,9 @@ public class LojaMagica {
 		this.funcionario=new CadastroFuncionarios(funcionario);
 	}
 	
+	/// MERCADORIA   ////////////////////
+	
+	
 	public void cadastrarMercadoria (Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
 		if (this.mercadoria.existe(mercadoria.getId())) {
 			MercadoriaJaCadastradaException e;
@@ -34,8 +37,8 @@ public class LojaMagica {
 		this.mercadoria.remover(id);
 	}
 	
-	public void existeMercadoria (int id) {
-		this.mercadoria.existe(id);
+	public boolean verificarMercadoria (int id) {
+		return this.mercadoria.existe(id);
 	}
 	
 	public void atualizarMercadoria (Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {
@@ -51,25 +54,35 @@ public class LojaMagica {
 	public Mercadoria procurarMercadoria (int id) throws MercadoriaNaoEncontradaException {
 		return this.mercadoria.procurar(id);
 	}
-	public void VendaInserir (Sale sale) throws ExisteVendaException{
+	
+	
+	/// VENDA   ////////////////////
+	
+	
+	public void inserirVenda (Sale sale) throws ExisteVendaException{
 		this.vendas.VendaInserir(sale);
 	}
 
-	public void VendaRemover (String id) throws NaoExisteException {
+	public void removerVenda (String id) throws NaoExisteException {
 		this.vendas.VendaRemover(id);
 	}
 
-	public boolean VendaExiste (String id) throws NaoExisteException{
+	public boolean verificarVenda (String id) throws NaoExisteException{
 		return this.vendas.VendaExiste(id);
 	}
 
-	public void VendaAtualizar (Sale sale) throws NaoExisteException {
+	public void atualizarVenda (Sale sale) throws NaoExisteException {
 		this.vendas.VendaAtualizar(sale);
 	}
 
-	public Sale VendaProcurar (String id) throws NaoExisteException {
+	public Sale procurarVenda (String id) throws NaoExisteException {
 		return this.vendas.VendaProcurar(id);
 	}
+	
+	
+	/// ENTREGADOR  ////////////////////
+	
+	
 	public void cadastrarEntregador(Entregador Entregadores) throws EntregadorJaCadastroException {
 		if (!this.entregador.verificarEntregador(Entregadores.getCpf())) {
 			this.entregador.inserirEntregador(Entregadores);
@@ -93,7 +106,11 @@ public class LojaMagica {
 	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException {
 		return this.entregador.procurarEntregador(cpf);
 	}
-	 public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException, LimiteClientesAtingidoException {
+	
+	/// CLIENTE ////////////////////
+	
+	
+	 public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException, LimiteClientesAtingidoException {
 	        if (!this.cliente.existe(cliente.getCpf())) {
 	            this.cliente.inserir(cliente);
 	        } else {
@@ -102,33 +119,41 @@ public class LojaMagica {
 	            throw e;
 	        }
 	    }
+	 public boolean verificarCliente(String cpf) {
+		 return this.cliente.existe(cpf);
+	 }
 
-	 public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
+	 public void atualizarCliente(Cliente cliente) throws ClienteNaoEncontradoException {
 	        this.cliente.atualizar(cliente);
 	    }
 
-	    public void remover(String cpf)
+	    public void removerCliente(String cpf)
 	            throws ClienteNaoEncontradoException {
 	        this.cliente.remover(cpf);
 	    }
 
-	    public Cliente procurar(String cpf)
+	    public Cliente procurarCliente(String cpf)
 	            throws ClienteNaoEncontradoException {
 	        return this.cliente.procurar(cpf);
 	    }
-	    public void cadastrarFuncionarios(Funcionarios funcionario) throws FuncionarioJaCadastradoException  {
+	    
+	    
+	  /// FUNCIONARIO   ////////////////////
+	    
+	    
+	    public void cadastrarFuncionario(Funcionarios funcionario) throws FuncionarioJaCadastradoException  {
 	    	if(!this.funcionario.existe(funcionario.getCpf()))
 	    		this.funcionario.inserir(funcionario);
 	    	else 
 	    		throw new FuncionarioJaCadastradoException();
 	    }
-	    public void  removerFuncionarios(Funcionarios funcionario) throws FuncionarioInexistenteException{
+	    public void  removerFuncionario(Funcionarios funcionario) throws FuncionarioInexistenteException{
 	    	if(this.funcionario.existe(funcionario.getCpf())==false)
 	    		this.funcionario.remover(funcionario);
 	    	else 
 	    		throw new FuncionarioInexistenteException();
 	    }
-	    public void atualizarFuncioanrios(Funcionarios funcionario,String cpf) throws FuncionarioInexistenteException{
+	    public void atualizarFuncionario(Funcionarios funcionario,String cpf) throws FuncionarioInexistenteException{
 	    	if(this.funcionario.existe(funcionario.getCpf())==false)
 	    		this.funcionario.atualizar(funcionario,cpf);
 	    	else 
@@ -142,6 +167,10 @@ public class LojaMagica {
 	    	
 	    		
 	    }
+	    public boolean verificarFuncionario(String cpf) {
+	    	return this.funcionario.existe(cpf);
+	    }
+	    
 
 
 }	

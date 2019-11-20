@@ -38,9 +38,9 @@ public class LojaMagica {
 		this.mercadoria.existe(id);
 	}
 	
-	public void atualizarMercadoria (int id, double preco) throws MercadoriaNaoEncontradaException {
-		if (this.mercadoria.existe(id)) {
-			this.mercadoria.atualizar(id, preco);
+	public void atualizarMercadoria (Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {
+		if (this.mercadoria.existe(mercadoria.getId())) {
+			this.mercadoria.atualizar(mercadoria);
 		} else {
 			MercadoriaNaoEncontradaException e;
 			e = new MercadoriaNaoEncontradaException();

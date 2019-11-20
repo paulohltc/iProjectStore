@@ -2,6 +2,8 @@ package entregador;
 
 import mercadoria.Mercadoria;
 import mercadoria.MercadoriaJaCadastradaException;
+import vendas.NaoExisteException;
+import vendas.Sale;
 
 public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 	private Entregador[] entregadores;
@@ -70,17 +72,12 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 		return null;
 	}
 
-	public void atualizarTransporteEntregador(String cpf, String transporte) throws EntregadorNaoEncontradoException {
-		boolean achou = false;
-		for (int i = 0; i < this.index && !achou; i++) {
-			if (entregadores[i] != null && entregadores[i].getCpf().equals(cpf)) {
-				achou = true;
-				this.procurarEntregador(cpf).setTransporte(transporte);
-
-			}
-		}
-		if (!achou) {
-			throw new EntregadorNaoEncontradoException();
+	public void atualizarEntregador(Entregador entregador) throws EntregadorNaoEncontradoException {
+		for (int i = 0; i < index; i++) {
+			if (entregadores[i].getCpf().equals(entregador.getCpf()))
+				entregadores[i] = entregador;
+			else if (i == index - 1)
+				throw new EntregadorNaoEncontradoException();
 		}
 	}
 

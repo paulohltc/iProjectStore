@@ -125,14 +125,16 @@ public class Main {
                         int idM = in.nextInt();
  
                         try {
-                            lojaMagica.existeMercadoria(idM);
+                            if(lojaMagica.verificarMercadoria(idM)) {
                             System.out.println("Insira o novo nome da mercadoria");
                             String nomeM = in.nextLine();
-                   
+                            System.out.println("Insira a novo descricao da mercadoria");
+                            String descM = in.nextLine();
                             System.out.println("Insira o novo preco da mercadoria");
                             double precoM = in.nextDouble();
-                            Mercadoria objMercadoria = new Mercadoria(idM, precoM);
+                            Mercadoria objMercadoria = new Mercadoria(nomeM,descM,precoM,idM);
                             lojaMagica.atualizarMercadoria(objMercadoria);
+                            }
  
                         } catch (MercadoriaNaoEncontradaException e) {
                             System.out.println("\n\n******ERRO******\n\n");

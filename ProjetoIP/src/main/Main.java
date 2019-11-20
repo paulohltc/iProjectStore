@@ -50,13 +50,14 @@ public class Main {
  
         System.out.println("Ola! Bem vindo a nossa Loja Magica! \n");
  
-        while (entrada != 4) {
+        while (entrada != 5) {
             int opcao = 0;
             System.out.println("O que deseja fazer?");
             System.out.println("1 - Gerenciar mercadoria");
             System.out.println("2 - Gerenciar vendas");
             System.out.println("3 - Gerenciar pessoas");
-            System.out.println("4 - Sair \n");
+            System.out.println("4 - Gerenciar clientes");
+            System.out.println("5 - Sair \n");
  
             entrada = in.nextInt();
  
@@ -271,9 +272,42 @@ public class Main {
                         }
                     }
                 }
+                
+                //clientes
+                if (entrada == 4) {
+                	while (opcao != 5) {
+                        System.out.println("Voce esta no gerenciamento de clientes. Selecione o que deseja fazer.");
+                        System.out.println("1 - Cadastrar cliente");
+                        System.out.println("2 - Remover cliente");
+                        System.out.println("3 - Atualizar cliente");
+                        System.out.println("4 - Procurar cliente");
+                        System.out.println("5 - Sair \n");
+     
+                        opcao = in.nextInt();
+                        
+                     // cadastrar cliente
+                        if (opcao == 1) {
+ 
+                        }
+ 
+                        // remover cliente
+                        if (opcao == 2) {
+ 
+                        }
+ 
+                        // atualizar cliente
+                        if (opcao == 3) {
+ 
+                        }
+ 
+                        // procurar cliente
+                        if (opcao == 4) {
+ 
+                        }
+                }
  
             }
  
         }
     }
-}
+}}

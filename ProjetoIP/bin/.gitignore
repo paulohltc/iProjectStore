@@ -1,3 +1,9 @@
 /entregador/
 /fachada/
 /mercadoria/
+/.gitignore
+/Cliente/
+/Pessoa/
+/funcionario/
+/vendas/
+/main/

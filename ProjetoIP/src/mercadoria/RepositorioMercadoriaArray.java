@@ -8,8 +8,8 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 	private int index;
 
 	public RepositorioMercadoriaArray() {
-		this.arrayMercadorias = new Mercadoria[0];
 		this.index = 0;
+		this.arrayMercadorias = new Mercadoria[index];	
 	}
 
 	public void inserir(Mercadoria mercadoria) throws MercadoriaJaCadastradaException {
@@ -17,7 +17,7 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		for (int i = 0; i <= index; i++) {
 			if (i < index)
 				aux[i] = arrayMercadorias[i];
-			else if(arrayMercadorias[i]==mercadoria)
+			else if(arrayMercadorias[i].equals(mercadoria))
 				throw new MercadoriaJaCadastradaException();
 			else
 				aux[i] = mercadoria;

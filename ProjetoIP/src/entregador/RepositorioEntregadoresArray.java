@@ -17,7 +17,7 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 		for (int i = 0; i <= index; i++) {
 			if (i < index)
 				aux[i] = entregadores[i];
-			else if(entregadores[i]==entregador)
+			else if(i!=index&&entregadores[i]==entregador)
 				throw new EntregadorJaCadastroException();
 			else
 				aux[i] = entregador;

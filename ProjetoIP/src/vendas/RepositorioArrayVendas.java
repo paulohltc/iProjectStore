@@ -13,7 +13,7 @@ public class RepositorioArrayVendas implements VendasInterface {
 		for (int i = 0; i <= size; i++) {
 			if (i < size)
 				aux[i] = Repoa[i];
-			else if(Repoa[i]==sale)
+			else if(i!=size&&Repoa[i]==sale)
 				throw new ExisteVendaException();
 			else
 				aux[i] = sale;

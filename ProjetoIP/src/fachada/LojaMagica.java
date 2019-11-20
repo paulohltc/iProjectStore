@@ -86,8 +86,8 @@ public class LojaMagica {
 		return this.entregador.verificarEntregador(cpf);
 	}
 
-	public void atualizarTransporteEntregador(String cpf, String transporte) throws EntregadorNaoEncontradoException {
-		this.entregador.atualizarTransporteEntregador(cpf, transporte);
+	public void atualizarEntregador(Entregador entregador) throws EntregadorNaoEncontradoException {
+		this.entregador.atualizarEntregador(entregador);
 	}
 
 	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException {

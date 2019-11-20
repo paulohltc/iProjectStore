@@ -1,5 +1,9 @@
-/mercadoria/
+/entregador/
 /fachada/
+<<<<<<< HEAD
 /funcionario/
 /vendas/
 /entregador/
+=======
+/mercadoria/
+>>>>>>> branch 'master' of https://github.com/paulohltc/iProjectStore.git

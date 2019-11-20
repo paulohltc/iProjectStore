@@ -1,5 +1,7 @@
 package entregador;
 
+import vendas.NaoExisteException;
+
 public class RepositorioEntregadoresLista implements RepositorioEntregadores {
 	private Entregador entregador;
 	private RepositorioEntregadoresLista next;
@@ -48,14 +50,16 @@ public class RepositorioEntregadoresLista implements RepositorioEntregadores {
 		return false;
 	}
 
-	public void atualizarTransporteEntregador(String cpf, String transporte) throws EntregadorNaoEncontradoException {
-		while (this.entregador != null) {
-			if (this.entregador.getCpf().equals(cpf)) {
-				this.entregador.setTransporte(transporte);
-			}
-			this.next.atualizarTransporteEntregador(cpf, transporte);
+	public void atualizarEntregador(Entregador entregador) throws EntregadorNaoEncontradoException {
+		if(this.entregador.getCpf()==entregador.getCpf()) {
+			this.entregador=entregador;
 		}
-		throw new EntregadorNaoEncontradoException();
+		else if(this.next!=null) {
+			this.next.atualizarEntregador(entregador);
+		}
+		else {
+			throw new EntregadorNaoEncontradoException();	
+		}
 	}
 	
 	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException {

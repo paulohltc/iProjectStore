@@ -24,8 +24,8 @@ public class CadastroEntregador {
 		return this.repositorio.verificarEntregador(cpf);
 	}
 
-	public void atualizarTransporteEntregador(String cpf, String transporte) throws EntregadorNaoEncontradoException {
-		this.repositorio.atualizarTransporteEntregador(cpf, transporte);
+	public void atualizarEntregador(Entregador entregador) throws EntregadorNaoEncontradoException {
+		this.repositorio.atualizarEntregador(entregador);
 	}
 
 	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException {

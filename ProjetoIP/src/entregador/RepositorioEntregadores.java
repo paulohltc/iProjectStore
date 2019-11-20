@@ -7,7 +7,7 @@ public interface RepositorioEntregadores {
 
 	public boolean verificarEntregador(String cpf);
 
-	public void atualizarTransporteEntregador(String cpf, String transporte) throws EntregadorNaoEncontradoException;
+	public void atualizarEntregador(Entregador entregador) throws EntregadorNaoEncontradoException;
 
 	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException;
 

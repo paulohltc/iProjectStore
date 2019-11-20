@@ -1,5 +1,7 @@
 package mercadoria;
 
+import entregador.EntregadorNaoEncontradoException;
+
 public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 	private Mercadoria mercadoria;
 	private RepositorioMercadoriaLista proximo;
@@ -49,9 +51,16 @@ public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 		}
 	}
 
-	public void atualizar(int id, double preco) throws MercadoriaNaoEncontradaException {
-		Mercadoria mercadorias = procurar(id);
-		mercadorias.setPreco(preco);
+	public void atualizar(Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {
+		if(this.mercadoria.getId()==mercadoria.getId()) {
+			this.mercadoria=mercadoria;
+		}
+		else if(this.proximo!=null) {
+			this.proximo.atualizar(mercadoria);
+		}
+		else {
+			throw new MercadoriaNaoEncontradaException();	
+		}
 	}
 
 	public Mercadoria procurar(int id) throws MercadoriaNaoEncontradaException {

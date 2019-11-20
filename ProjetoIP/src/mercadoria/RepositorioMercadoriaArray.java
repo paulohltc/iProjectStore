@@ -35,10 +35,16 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		this.index -= 1;
 	}
 
-	public void atualizar(int id, double preco) throws MercadoriaNaoEncontradaException {
-		int i = this.getIndex(id);
-		arrayMercadorias[i].setPreco(preco);
-	}
+	public void atualizar(Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {
+        for (int i = 0; i < index; i++) {
+            if (arrayMercadorias[i].getId()==(mercadoria.getId())) {
+                arrayMercadorias[i] = mercadoria;
+                i=index;
+            }
+            else if (i == index - 1)
+                throw new MercadoriaNaoEncontradaException();
+        }
+    }
 
 	public Mercadoria procurar(int id) throws MercadoriaNaoEncontradaException {
 		Mercadoria encontrada = null;

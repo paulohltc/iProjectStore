@@ -9,7 +9,7 @@ public interface RepositorioMercadoria {
 
 	public boolean existe(int id);
 
-	public void atualizar(int id, double preco)
+	public void atualizar(Mercadoria mercadoria)
 			throws MercadoriaNaoEncontradaException;
 	
 	public Mercadoria procurar(int id)

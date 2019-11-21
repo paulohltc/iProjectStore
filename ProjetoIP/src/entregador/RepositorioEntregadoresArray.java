@@ -78,5 +78,12 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 				throw new EntregadorNaoEncontradoException();
 		}
 	}
-
+	public boolean observando() throws NaoExisteEntregadorException{
+		if(index!=0) {
+			return true;
+		}
+		else {
+			throw new NaoExisteEntregadorException();
+		}
+	}
 }

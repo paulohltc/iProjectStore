@@ -18,7 +18,7 @@ public class RepositorioListaVendas implements VendasInterface{
 		if (this.sale == null) {
 			this.sale = sale;
 			this.next = new RepositorioListaVendas();
-		} else if (this.sale == null) {
+		} else if (this.sale.getSaleid().equals(sale.getSaleid())) {
 			throw new ExisteVendaException();
 		} else {
 			this.next.VendaInserir(sale);

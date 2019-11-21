@@ -6,14 +6,15 @@ public class Vendas {
 	private String deliver;
 	private Double cost;
 
-	public Vendas(String saleid, String store, String deliver) {
+	public Vendas(String saleid, String deliver) {
 		this.saleid = saleid;
 		this.deliver = deliver;
+		this.cost = 0.0;
 		int aux = 0;
 		while (aux < this.deliver.length() && aux <= 10) {
 			this.distance *= Character.getNumericValue(deliver.charAt(0));
 			aux++;
-			this.cost=0.0;
+			this.cost = 0.0;
 		}
 	}
 
@@ -24,7 +25,7 @@ public class Vendas {
 	public void setSaleid(String saleid) {
 		this.saleid = saleid;
 	}
-
+	
 	public Long getDistance() {
 		return distance;
 	}

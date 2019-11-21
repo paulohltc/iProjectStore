@@ -29,14 +29,15 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 		Entregador[] aux = new Entregador[index - 1];
 		boolean removeu = false;
 		for (int i = 0; i < index; i++) {
-			if (entregadores[i].getCpf().equals(cpf)) {
+			if((!removeu&&index==1&&!entregadores[i].getCpf().equals(cpf))||(index!=1&&!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf))) {
+				i++;
+				throw new EntregadorNaoEncontradoException();
+	        }
+			else if (entregadores[i].getCpf().equals(cpf)) {
 				removeu=true;
+				if(i+1!=index)
 				aux[i] = entregadores[i+1];
 				i++;
-			}
-			else if((!removeu&&index==1&&!entregadores[i].getCpf().equals(cpf))||(!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf))) {
-			i++;
-			throw new EntregadorNaoEncontradoException();
 			}
 			else
 				aux[i] = entregadores[i];

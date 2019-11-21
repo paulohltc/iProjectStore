@@ -535,11 +535,9 @@ public class Main {
 						try {
 							System.out.println("Insira o novo nome do funcionario:");
 							String nomeF = in.nextLine();
-							System.out.println("Insira o novo CPF do funcionario:");
-							String newcpfF = in.nextLine();
 							System.out.println("Insira o novo contato do funcionario");
 							String contatoF = in.nextLine();
-							Funcionarios funcionario = new Funcionarios(nomeF, newcpfF, contatoF);
+							Funcionarios funcionario = new Funcionarios(nomeF, cpfF, contatoF);
 							lojaMagica.atualizarFuncionario(funcionario);
 							System.out.println("\n\nFuncionario atualizado com sucesso!\n\n");
 

@@ -28,14 +28,15 @@ public class RepositorioArrayVendas implements VendasInterface {
 		Vendas[] aux = new Vendas[size - 1];
 		boolean removeu = false;
 		for (int i = 0; i < size; i++) {
-			if (Repoa[i].getSaleid().equals(saleid)) {
+			if((!removeu&&size==1&&!Repoa[i].getSaleid().equals(saleid))||(size!=1&&!removeu&&i==size-1&&!Repoa[i+1].getSaleid().equals(saleid))) {
+				i++;
+				throw new NaoExisteException();
+				}
+			else if (Repoa[i].getSaleid().equals(saleid)) {
 				removeu=true;
+				if(i+1!=size)
 				aux[i] = Repoa[i+1];
 				i++;
-			}
-			else if((size==1&&!Repoa[i].getSaleid().equals(saleid))||(!removeu&&i==size-1&&!Repoa[i+1].getSaleid().equals(saleid))) {
-			i++;
-			throw new NaoExisteException();
 			}
 			else
 				aux[i] = Repoa[i];
@@ -43,7 +44,7 @@ public class RepositorioArrayVendas implements VendasInterface {
 		size--;
 		Repoa=aux;
 	}
-
+//(!removeu&&index==1&&!entregadores[i].getCpf().equals(cpf))||(index!=1&&!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf))
 	public void VendaAtualizar(Vendas sale) throws NaoExisteException {
 		for (int i = 0; i < size; i++) {
 			if (Repoa[i].getSaleid().equals(sale.getSaleid())) {

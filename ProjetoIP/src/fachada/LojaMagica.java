@@ -160,7 +160,7 @@ public class LojaMagica {
 	public Funcionarios procurarFuncionario(String cpf) throws FuncionarioInexistenteException {
 		if (this.funcionario.existe(cpf) == false)
 			throw new FuncionarioInexistenteException();
-
+        else
 		return this.funcionario.procurar(cpf);
 
 	}

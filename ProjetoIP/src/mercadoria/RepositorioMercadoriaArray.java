@@ -31,8 +31,13 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		if (this.arrayMercadorias.length - 1 - i >= 0) {
 			System.arraycopy(arrayMercadorias, i + 1, this.arrayMercadorias, i, this.arrayMercadorias.length - 1 - i);
 		}
+		if(index>0) {
 		this.arrayMercadorias[this.arrayMercadorias.length - 1] = null;
 		this.index -= 1;
+		}
+		else if(index==0) {
+			throw new MercadoriaNaoEncontradaException();
+		}
 	}
 
 	public void atualizar(Mercadoria mercadoria) throws MercadoriaNaoEncontradaException {

@@ -512,6 +512,7 @@ public class Main {
 						System.out.println("Para remover um funcionario, digite o que se pede:");
 						System.out.println("CPF do funcionario:");
 						String cpfF = in.nextLine();
+						try {
 						Funcionarios funcionario = lojaMagica.procurarFuncionario(cpfF);
 
 						try {
@@ -520,6 +521,12 @@ public class Main {
 							System.out.println("\n\nFuncionario removido com sucesso!\n\n");
 
 						} catch (FuncionarioInexistenteException e) {
+							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
+						}
+						}
+						catch(FuncionarioInexistenteException e) {
 							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
 							System.out.println("\n\n******ERRO******\n\n");

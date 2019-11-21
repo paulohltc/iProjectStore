@@ -30,24 +30,24 @@ public class Main {
 		Vendas objetoVendas;
 
 		// lista
-		RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaLista();
-		RepositorioCliente repoCliente = new RepositorioListaCliente();
-		RepositorioEntregadores repoEntregador = new RepositorioEntregadoresLista();
-		RepositorioFuncionarios repoFuncionarios = new RepositorioFuncionariosLista();
-		VendasInterface repoVendas = new RepositorioListaVendas();
-		LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas, repoEntregador, repoCliente,
-				repoFuncionarios);
+		//RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaLista();
+		//RepositorioCliente repoCliente = new RepositorioListaCliente();
+		//RepositorioEntregadores repoEntregador = new RepositorioEntregadoresLista();
+		//RepositorioFuncionarios repoFuncionarios = new RepositorioFuncionariosLista();
+		//VendasInterface repoVendas = new RepositorioListaVendas();
+		//LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas, repoEntregador, repoCliente,
+		//		repoFuncionarios);
 
 		// array
-		// RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaArray();
-		// RepositorioCliente repoCliente = new RepositorioArrayCliente();
-		// RepositorioEntregadores repoEntregador = new RepositorioEntregadoresArray();
-		// RepositorioFuncionarios repoFuncionarios = new
-		// RepositorioFuncionariosArray();
-		// VendasInterface repoVendas = new RepositorioArrayVendas();
-		// LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas,
-		// repoEntregador, repoCliente,
-		// repoFuncionarios);
+		RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaArray();
+		RepositorioCliente repoCliente = new RepositorioArrayCliente();
+		RepositorioEntregadores repoEntregador = new RepositorioEntregadoresArray();
+		RepositorioFuncionarios repoFuncionarios = new
+		RepositorioFuncionariosArray();
+		VendasInterface repoVendas = new RepositorioArrayVendas();
+		LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas,
+		repoEntregador, repoCliente,
+		repoFuncionarios);
 
 		System.out.println("Ola! Bem vindo a nossa Loja Magica! \n");
 
@@ -96,9 +96,8 @@ public class Main {
 							System.out.println("\n\nMercadoria cadastrada com sucesso!\n\n");
 
 						} catch (MercadoriaJaCadastradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -116,13 +115,12 @@ public class Main {
 							System.out.println("\n\nMercadoria removida com sucesso!\n\n");
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 					}
 
-					// atualizar mercadoria
+					// atualizar preco
 					if (opcao == 3) {
 						System.out.println("Para atualizar uma mercadoria, digite o que se pede: ");
 						System.out.println("Identificador da mercadoria");
@@ -143,9 +141,8 @@ public class Main {
 							}
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -166,9 +163,8 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -207,10 +203,10 @@ public class Main {
 									localdeEntrega = localdeEntrega.substring(0, 10);
 									System.out
 											.println("voce morava longe demais, agora voce mora em " + localdeEntrega);
-
+									
 								}
 								try {
-									Entregador objentregador = lojaMagica.procurarEntregador(cpf);
+									Entregador objentregador=lojaMagica.procurarEntregador(cpf);
 									cpf = objentregador.getCpf();
 									try {
 										Mercadoria objmercadoria = lojaMagica.procurarMercadoria(id);
@@ -222,29 +218,29 @@ public class Main {
 											lojaMagica.inserirVenda(objVenda);
 											System.out.println("\n\nVenda concluida com sucesso!\n\n");
 										} catch (ExisteVendaException e) {
-											System.out.println("\n\n******ERRO******\n\n");
+											System.out.println("\n\n**ERRO**\n\n");
 											System.out.println(e.getMessage() + "\n");
-											System.out.println("\n\n******ERRO******\n\n");
+											System.out.println("\n\n**ERRO**\n\n");
 										}
 									} catch (MercadoriaNaoEncontradaException e) {
-										System.out.println("\n\n******ERRO******\n\n");
+										System.out.println("\n\n**ERRO**\n\n");
 										System.out.println(e.getMessage() + "\n");
-										System.out.println("\n\n******ERRO******\n\n");
+										System.out.println("\n\n**ERRO**\n\n");
 									}
 								} catch (EntregadorNaoEncontradoException e) {
-									System.out.println("\n\n******ERRO******\n\n");
+									System.out.println("\n\n**ERRO**\n\n");
 									System.out.println(e.getMessage() + "\n");
-									System.out.println("\n\n******ERRO******\n\n");
+									System.out.println("\n\n**ERRO**\n\n");
 								}
 							} else {
-								System.out.println("\n\n******ERRO******\n\n");
+								System.out.println("\n\n**ERRO**\n\n");
 								System.out.println("Nao existe nenhuma mercadoria\n");
-								System.out.println("\n\n******ERRO******\n\n");
+								System.out.println("\n\n**ERRO**\n\n");
 							}
 						} else {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println("Nao existe nenhum entregador\n");
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 						}
 					}
 
@@ -260,9 +256,9 @@ public class Main {
 							System.out.println("\n\nMercadoria removida com sucesso!\n\n");
 
 						} catch (NaoExisteException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 						}
 					}
 
@@ -284,10 +280,10 @@ public class Main {
 									localdeEntrega = localdeEntrega.substring(0, 10);
 									System.out
 											.println("voce morava longe demais, agora voce mora em " + localdeEntrega);
-
+									
 								}
 								try {
-									Entregador objentregador = lojaMagica.procurarEntregador(cpf);
+									Entregador objentregador=lojaMagica.procurarEntregador(cpf);
 									cpf = objentregador.getCpf();
 									try {
 										Mercadoria objmercadoria = lojaMagica.procurarMercadoria(id);
@@ -299,29 +295,29 @@ public class Main {
 											lojaMagica.inserirVenda(objVenda);
 											System.out.println("\n\nVenda atualizada com sucesso!\n\n");
 										} catch (ExisteVendaException e) {
-											System.out.println("\n\n******ERRO******\n\n");
+											System.out.println("\n\n**ERRO**\n\n");
 											System.out.println(e.getMessage() + "\n");
-											System.out.println("\n\n******ERRO******\n\n");
+											System.out.println("\n\n**ERRO**\n\n");
 										}
 									} catch (MercadoriaNaoEncontradaException e) {
-										System.out.println("\n\n******ERRO******\n\n");
+										System.out.println("\n\n**ERRO**\n\n");
 										System.out.println(e.getMessage() + "\n");
-										System.out.println("\n\n******ERRO******\n\n");
+										System.out.println("\n\n**ERRO**\n\n");
 									}
 								} catch (EntregadorNaoEncontradoException e) {
-									System.out.println("\n\n******ERRO******\n\n");
+									System.out.println("\n\n**ERRO**\n\n");
 									System.out.println(e.getMessage() + "\n");
-									System.out.println("\n\n******ERRO******\n\n");
+									System.out.println("\n\n**ERRO**\n\n");
 								}
 							} else {
-								System.out.println("\n\n******ERRO******\n\n");
+								System.out.println("\n\n**ERRO**\n\n");
 								System.out.println("Nao existe nenhuma mercadoria\n");
-								System.out.println("\n\n******ERRO******\n\n");
+								System.out.println("\n\n**ERRO**\n\n");
 							}
 						} else {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println("Nao existe nenhum entregador\n");
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 						}
 					}
 					// procurar venda
@@ -340,9 +336,8 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (NaoExisteException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -383,9 +378,8 @@ public class Main {
 							System.out.println("\n\nEntregador cadastrado com sucesso!\n\n");
 
 						} catch (EntregadorJaCadastroException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -403,9 +397,8 @@ public class Main {
 							System.out.println("\n\nEntregador removido com sucesso!\n\n");
 
 						} catch (EntregadorNaoEncontradoException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -434,9 +427,8 @@ public class Main {
 							}
 
 						} catch (EntregadorNaoEncontradoException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -459,9 +451,8 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (EntregadorNaoEncontradoException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n**ERRO**\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}

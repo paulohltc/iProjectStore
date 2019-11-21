@@ -1,16 +1,14 @@
 package vendas;
 
-public class Sale {
+public class Vendas {
 	private String saleid;
 	private Long distance;
-	private String store;
 	private String deliver;
 	private Double cost;
 
-	public Sale(String saleid, String store, String deliver) {
+	public Vendas(String saleid, String store, String deliver) {
 this.saleid=saleid;
 this.distance=(long)0;
-this.store=store;
 this.deliver=deliver;
 this.cost=0.0;
 	}
@@ -34,14 +32,6 @@ this.cost=0.0;
 			aux++;
 		}
 
-	}
-
-	public String getStore() {
-		return store;
-	}
-
-	public void setStore(String store) {
-		this.store = store;
 	}
 
 	public String getDeliver() {

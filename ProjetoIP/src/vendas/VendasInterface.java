@@ -1,13 +1,13 @@
 package vendas;
 
 public interface VendasInterface {
-	public void VendaInserir(Sale sale)
+	public void VendaInserir(Vendas sale)
 			throws ExisteVendaException;
-			public void VendaAtualizar(Sale sale)
+			public void VendaAtualizar(Vendas sale)
 			throws NaoExisteException;
 			public void VendaRemover(String saleid)
 			throws NaoExisteException;
-			public Sale VendaProcurar(String saleid)
+			public Vendas VendaProcurar(String saleid)
 			throws NaoExisteException;
 			public boolean VendaExiste(String saleid)
 			throws NaoExisteException;

@@ -26,7 +26,7 @@ public class Main {
         Cliente objetoCliente;
         Funcionarios objetoFuncionario;
         Entregador objetoEntregador;
-        Sale objetoVendas;
+        Vendas objetoVendas;
  
         // lista
         RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaLista();

@@ -3,7 +3,7 @@ package entregador;
 import mercadoria.Mercadoria;
 import mercadoria.MercadoriaJaCadastradaException;
 import vendas.NaoExisteException;
-import vendas.Sale;
+import vendas.Vendas;
 
 public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 	private Entregador[] entregadores;

@@ -59,7 +59,7 @@ public class LojaMagica {
 	/// VENDA   ////////////////////
 	
 	
-	public void inserirVenda (Sale sale) throws ExisteVendaException{
+	public void inserirVenda (Vendas sale) throws ExisteVendaException{
 		this.vendas.VendaInserir(sale);
 	}
 
@@ -71,11 +71,11 @@ public class LojaMagica {
 		return this.vendas.VendaExiste(id);
 	}
 
-	public void atualizarVenda (Sale sale) throws NaoExisteException {
+	public void atualizarVenda (Vendas sale) throws NaoExisteException {
 		this.vendas.VendaAtualizar(sale);
 	}
 
-	public Sale procurarVenda (String id) throws NaoExisteException {
+	public Vendas procurarVenda (String id) throws NaoExisteException {
 		return this.vendas.VendaProcurar(id);
 	}
 	

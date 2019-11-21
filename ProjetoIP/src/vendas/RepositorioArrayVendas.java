@@ -2,14 +2,14 @@ package vendas;
 
 public class RepositorioArrayVendas implements VendasInterface {
 	private int size = 0;
-	private Sale [] Repoa;
+	private Vendas [] Repoa;
 	
 	public RepositorioArrayVendas() {
-		Repoa=new Sale[size];
+		Repoa=new Vendas[size];
 	}
 
-	public void VendaInserir(Sale sale) throws ExisteVendaException{
-		Sale[] aux = new Sale[size + 1];
+	public void VendaInserir(Vendas sale) throws ExisteVendaException{
+		Vendas[] aux = new Vendas[size + 1];
 		for (int i = 0; i <= size; i++) {
 			if (i < size)
 				aux[i] = Repoa[i];
@@ -23,7 +23,7 @@ public class RepositorioArrayVendas implements VendasInterface {
 	}
 
 	public void VendaRemover(String saleid) throws NaoExisteException{
-		Sale[] aux = new Sale[size - 1];
+		Vendas[] aux = new Vendas[size - 1];
 		boolean removeu = false;
 		for (int i = 0; i < size; i++) {
 			if (Repoa[i].getSaleid().equals(saleid)) {
@@ -41,7 +41,7 @@ public class RepositorioArrayVendas implements VendasInterface {
 		Repoa=aux;
 	}
 
-	public void VendaAtualizar(Sale sale) throws NaoExisteException {
+	public void VendaAtualizar(Vendas sale) throws NaoExisteException {
 		for (int i = 0; i < size; i++) {
 			if (Repoa[i].getSaleid().equals(sale.getSaleid())) {
 				Repoa[i] = sale;
@@ -52,8 +52,8 @@ public class RepositorioArrayVendas implements VendasInterface {
 		}
 	}
 
-	public Sale VendaProcurar(String saleid) throws NaoExisteException {
-		Sale sale = null;
+	public Vendas VendaProcurar(String saleid) throws NaoExisteException {
+		Vendas sale = null;
 		for (int i = 0; i < size; i++) {
 			if (Repoa[i].getSaleid().equals(saleid))
 				sale = Repoa[i];

@@ -2,7 +2,7 @@ package funcionario;
 
 import vendas.ExisteVendaException;
 import vendas.NaoExisteException;
-import vendas.Sale;
+import vendas.Vendas;
 
 public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 	private Funcionarios funcionarios[];

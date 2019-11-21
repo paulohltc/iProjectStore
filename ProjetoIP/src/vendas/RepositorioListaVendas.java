@@ -1,7 +1,7 @@
 package vendas;
 
 public class RepositorioListaVendas implements VendasInterface{
-	private Sale sale;
+	private Vendas sale;
 	private RepositorioListaVendas next;
 
 	public RepositorioListaVendas() {
@@ -9,12 +9,12 @@ public class RepositorioListaVendas implements VendasInterface{
 		this.next = null;
 	}
 
-	public RepositorioListaVendas(Sale sale) {
+	public RepositorioListaVendas(Vendas sale) {
 		this.sale = sale;
 		this.next = null;
 	}
 
-	public void VendaInserir(Sale sale) throws ExisteVendaException {
+	public void VendaInserir(Vendas sale) throws ExisteVendaException {
 		if (this.sale == null) {
 			this.sale = sale;
 			this.next = new RepositorioListaVendas();
@@ -49,7 +49,7 @@ public class RepositorioListaVendas implements VendasInterface{
 			return this.next.VendaExiste(saleid);
 		}
 	}
-	public Sale VendaProcurar(String saleid) throws NaoExisteException{
+	public Vendas VendaProcurar(String saleid) throws NaoExisteException{
 		if(this.sale!=null&&this.sale.getSaleid()==saleid) {
 			return sale;
 		}
@@ -59,7 +59,7 @@ public class RepositorioListaVendas implements VendasInterface{
 			return this.next.VendaProcurar(saleid);
 		}
 	}
-	public void VendaAtualizar(Sale sale) throws NaoExisteException{
+	public void VendaAtualizar(Vendas sale) throws NaoExisteException{
 		if(this.sale.getSaleid()==sale.getSaleid()) {
 			this.sale=sale;
 		}

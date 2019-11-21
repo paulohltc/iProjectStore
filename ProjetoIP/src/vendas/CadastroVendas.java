@@ -7,7 +7,7 @@ public class CadastroVendas {
 		vendas = repo;
 	}
 
-	public void VendaInserir(Sale sale) throws ExisteVendaException {
+	public void VendaInserir(Vendas sale) throws ExisteVendaException {
 		this.vendas.VendaInserir(sale);
 	}
 
@@ -19,11 +19,11 @@ public class CadastroVendas {
 		return this.vendas.VendaExiste(id);
 	}
 
-	public void VendaAtualizar(Sale sale) throws NaoExisteException {
+	public void VendaAtualizar(Vendas sale) throws NaoExisteException {
 		this.vendas.VendaAtualizar(sale);
 	}
 
-	public Sale VendaProcurar(String id) throws NaoExisteException {
+	public Vendas VendaProcurar(String id) throws NaoExisteException {
 		return this.vendas.VendaProcurar(id);
 	}
 }

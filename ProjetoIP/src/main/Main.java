@@ -15,9 +15,9 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) throws MercadoriaJaCadastradaException, MercadoriaNaoEncontradaException,
-			ClienteJaCadastradoException, ClienteNaoEncontradoException, LimiteClientesAtingidoException,
-			EntregadorJaCadastroException, EntregadorNaoEncontradoException, FuncionarioInexistenteException,
-			FuncionarioJaCadastradoException, ExisteVendaException, NaoExisteException {
+			ClienteJaCadastradoException, ClienteNaoEncontradoException, EntregadorJaCadastroException,
+			EntregadorNaoEncontradoException, FuncionarioInexistenteException, FuncionarioJaCadastradoException,
+			ExisteVendaException, NaoExisteException {
 		Scanner in = new Scanner(System.in);
 
 		int entrada = 0, tipoPessoa = 0;

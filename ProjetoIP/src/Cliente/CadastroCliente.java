@@ -8,7 +8,7 @@ public class CadastroCliente {
 		repositorio = rep;
 	}
 
-	 public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException, LimiteClientesAtingidoException {
+	 public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException {
 	        if (!this.repositorio.existe(cliente.getCpf())) {
 	            this.repositorio.inserir(cliente);
 	        } else {

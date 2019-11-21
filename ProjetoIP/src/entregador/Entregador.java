@@ -7,6 +7,8 @@ public class Entregador extends Pessoa {
 	
 	 public Entregador(String nome, String cpf, String contato, String transporte, double precoPorDistancia) {
 	        super(nome, cpf, contato);
+	        this.transporte=transporte;
+	        this.precoPorDistancia=precoPorDistancia;
 	    }
 	
 	public double getPrecoPorDistancia() {

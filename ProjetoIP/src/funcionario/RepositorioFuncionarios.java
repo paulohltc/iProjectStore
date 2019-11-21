@@ -1,12 +1,12 @@
 package funcionario;
 public interface RepositorioFuncionarios {
-	public void inserir(Funcionarios funcionario);
+	public void inserir(Funcionarios funcionario) throws FuncionarioJaCadastradoException;
 
-	public void remover(Funcionarios funcionario);
+	public void remover(Funcionarios funcionario) throws FuncionarioInexistenteException;
 
-	public Funcionarios procurar(String cpf);
+	public Funcionarios procurar(String cpf) throws FuncionarioInexistenteException;
 
-	public void atualizar(Funcionarios funcionario,String cpf);
+	public void atualizar(Funcionarios funcionario) throws FuncionarioInexistenteException;
 
 	public boolean existe(String cpf);
 

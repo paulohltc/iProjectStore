@@ -21,26 +21,27 @@ public class CadastroFuncionarios {
 			throw new FuncionarioInexistenteException();
 	}
 
-	public void atualizarFuncioanrios(Funcionarios funcionario, String cpf) throws FuncionarioInexistenteException {
+	public void atualizarFuncioanrios(Funcionarios funcionario) throws FuncionarioInexistenteException {
 		if (repositorioFuncionarios.existe(funcionario.getCpf()))
-			repositorioFuncionarios.atualizar(funcionario, cpf);
+			repositorioFuncionarios.atualizar(funcionario);
 		else
 			throw new FuncionarioInexistenteException();
 	}
 
 	public Funcionarios procurarFuncionario(String cpf) throws FuncionarioInexistenteException {
-		if (repositorioFuncionarios.existe(cpf))
+		if (!repositorioFuncionarios.existe(cpf))
 			throw new FuncionarioInexistenteException();
-
+		
+		else
 		return repositorioFuncionarios.procurar(cpf);
 
 	}
 
-	public void inserir(Funcionarios funcionario) {
+	public void inserir(Funcionarios funcionario) throws FuncionarioJaCadastradoException {
 		this.repositorioFuncionarios.inserir(funcionario);
 	}
 
-	public void remover(Funcionarios funcionario) {
+	public void remover(Funcionarios funcionario) throws FuncionarioInexistenteException {
 		this.repositorioFuncionarios.remover(funcionario);
 	}
 
@@ -48,11 +49,11 @@ public class CadastroFuncionarios {
 		return this.repositorioFuncionarios.existe(cpf);
 	}
 
-	public Funcionarios procurar(String cpf) {
+	public Funcionarios procurar(String cpf) throws FuncionarioInexistenteException {
 		return this.repositorioFuncionarios.procurar(cpf);
 	}
 
-	public void atualizar(Funcionarios funcionario, String cpf) {
-		this.repositorioFuncionarios.atualizar(funcionario, cpf);
+	public void atualizar(Funcionarios funcionario) throws FuncionarioInexistenteException {
+		this.repositorioFuncionarios.atualizar(funcionario);
 	}
 }

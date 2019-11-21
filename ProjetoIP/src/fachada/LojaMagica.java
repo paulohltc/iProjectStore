@@ -150,9 +150,9 @@ public class LojaMagica {
 			throw new FuncionarioInexistenteException();
 	}
 
-	public void atualizarFuncionario(Funcionarios funcionario, String cpf) throws FuncionarioInexistenteException {
-		if (this.funcionario.existe(cpf) == true)
-			this.funcionario.atualizar(funcionario, cpf);
+	public void atualizarFuncionario(Funcionarios funcionario) throws FuncionarioInexistenteException {
+		if (this.funcionario.existe(funcionario.getCpf()) == true)
+			this.funcionario.atualizar(funcionario);
 		else
 			throw new FuncionarioInexistenteException();
 	}

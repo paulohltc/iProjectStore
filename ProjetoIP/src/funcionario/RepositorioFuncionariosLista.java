@@ -38,12 +38,12 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 			return null;
 	}
 
-	public void atualizar(Funcionarios funcionario, String cpf) {
+	public void atualizar(Funcionarios funcionario) throws FuncionarioInexistenteException {
 		if (this.funcionario != null) {
-			if (this.funcionario.getCpf().equals(cpf)) {
+			if (this.funcionario.getCpf().equals(funcionario.getCpf())) {
 				this.funcionario = funcionario;
 			} else
-				this.proximo.atualizar(funcionario, cpf);
+				this.proximo.atualizar(funcionario);
 		}
 
 	}
@@ -57,4 +57,5 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 		}
 		return false;
 	}
+
 }

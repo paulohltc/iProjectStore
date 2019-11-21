@@ -37,11 +37,13 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 		funcionarios = aux;
 	}
 
-	public void atualizar(Funcionarios funcionario, String cpf) {
+	public void atualizar(Funcionarios funcionario) throws FuncionarioInexistenteException {
 		for (int i = 0; i < size; i++) {
-			if (funcionarios[i].getCpf().equals(cpf)) {
+			if (funcionarios[i].getCpf().equals(funcionario.getCpf())) {
 				funcionarios[i] = funcionario;
 				i = size;
+			} else if (i == size -1) {
+				throw new FuncionarioInexistenteException();
 			}
 		}
 	}
@@ -63,4 +65,5 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 		}
 		return false;
 	}
+
 }

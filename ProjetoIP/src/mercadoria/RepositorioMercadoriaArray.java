@@ -1,7 +1,5 @@
 package mercadoria;
 
-import vendas.ExisteVendaException;
-import vendas.Vendas;
 
 public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 	private Mercadoria[] arrayMercadorias;

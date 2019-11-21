@@ -1,6 +1,5 @@
 package mercadoria;
 
-import entregador.EntregadorNaoEncontradoException;
 
 public class RepositorioMercadoriaLista implements RepositorioMercadoria {
 	private Mercadoria mercadoria;

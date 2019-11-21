@@ -1,6 +1,5 @@
 package entregador;
 
-import vendas.NaoExisteException;
 
 public class RepositorioEntregadoresLista implements RepositorioEntregadores {
 	private Entregador entregador;

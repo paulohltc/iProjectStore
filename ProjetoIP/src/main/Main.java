@@ -201,7 +201,6 @@ public class Main {
 								System.out.println("Para comprar um produto, digite o que se pede:");
 								System.out.println("digite o cpf do entregador");
 								String cpf = in.nextLine();
-								in.nextLine();
 								System.out.println("digite o id da mercadoria");
 								int id = Integer.parseInt(in.nextLine());
 								System.out.println("Digite o Id da venda: ");
@@ -278,7 +277,6 @@ public class Main {
 								System.out.println("Para comprar um novo produto, digite o que se pede:");
 								System.out.println("digite o novo cpf do entregador");
 								String cpf = in.nextLine();
-								in.nextLine();
 								System.out.println("digite o novo id da mercadoria");
 								int id = Integer.parseInt(in.nextLine());
 								System.out.println("Digite o novo Id da venda: ");

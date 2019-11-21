@@ -7,10 +7,14 @@ public class Vendas {
 	private Double cost;
 
 	public Vendas(String saleid, String store, String deliver) {
-this.saleid=saleid;
-this.distance=(long)0;
-this.deliver=deliver;
-this.cost=0.0;
+		this.saleid = saleid;
+		this.deliver = deliver;
+		int aux = 0;
+		while (aux < this.deliver.length() && aux <= 10) {
+			this.distance *= Character.getNumericValue(deliver.charAt(0));
+			aux++;
+			this.cost=0.0;
+		}
 	}
 
 	public String getSaleid() {
@@ -26,11 +30,7 @@ this.cost=0.0;
 	}
 
 	public void setDistance(Long distance) {
-		int aux = 0;
-		while (aux < this.deliver.length() && aux <= 10) {
-			this.distance *= Character.getNumericValue(deliver.charAt(0));
-			aux++;
-		}
+		this.distance = distance;
 
 	}
 
@@ -46,7 +46,7 @@ this.cost=0.0;
 		return cost;
 	}
 
-	public void setCost(Long distance, double price, double entregador,int quantidade) {
-		this.cost = distance * entregador + price*quantidade;
+	public void setCost(Long distance, double price, double entregador, int quantidade) {
+		this.cost = distance * entregador + price * quantidade;
 	}
 }

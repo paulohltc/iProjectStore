@@ -50,7 +50,7 @@ public class RepositorioListaVendas implements VendasInterface{
 		}
 	}
 	public Vendas VendaProcurar(String saleid) throws NaoExisteException{
-		if(this.sale!=null&&this.sale.getSaleid()==saleid) {
+		if(this.sale!=null&&this.sale.getSaleid().equals(saleid)) {
 			return sale;
 		}
 		else if(this.next==null)
@@ -60,7 +60,7 @@ public class RepositorioListaVendas implements VendasInterface{
 		}
 	}
 	public void VendaAtualizar(Vendas sale) throws NaoExisteException{
-		if(this.sale.getSaleid()==sale.getSaleid()) {
+		if(this.sale!=null&&this.sale.getSaleid().equals(sale.getSaleid())) {
 			this.sale=sale;
 		}
 		else if(this.next!=null) {

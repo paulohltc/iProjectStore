@@ -1,5 +1,7 @@
 package entregador;
 
+import vendas.NaoExisteException;
+import vendas.Vendas;
 
 public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 	private Entregador[] entregadores;
@@ -26,25 +28,24 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 		entregadores = aux;
 	}
 
-	public void removerEntregador(String cpf) throws EntregadorNaoEncontradoException {
-		Entregador aux;
-		boolean b = true;
-		for (int i = 0; i < entregadores.length; i++) {
+	public void removerEntregador(String cpf) throws EntregadorNaoEncontradoException{
+		Entregador[] aux = new Entregador[index - 1];
+		boolean removeu = false;
+		for (int i = 0; i < index; i++) {
 			if (entregadores[i].getCpf().equals(cpf)) {
-				b = false;
-				entregadores[i] = null;
-				this.index--;
-				while (i < entregadores.length - 1) {
-					aux = entregadores[i];
-					entregadores[i] = entregadores[i + 1];
-					entregadores[i + 1] = aux;
-					i++;
-				}
+				removeu=true;
+				aux[i] = entregadores[i+1];
+				i++;
 			}
-		}
-		if (b) {
+			else if(!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf)) {
+			i++;
 			throw new EntregadorNaoEncontradoException();
+			}
+			else
+				aux[i] = entregadores[i];
 		}
+		index--;
+		entregadores=aux;
 	}
 
 	public boolean verificarEntregador(String cpf) {
@@ -72,18 +73,12 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 
 	public void atualizarEntregador(Entregador entregador) throws EntregadorNaoEncontradoException {
 		for (int i = 0; i < index; i++) {
-			if (entregadores[i].getCpf().equals(entregador.getCpf()))
+			if (entregadores[i].getCpf().equals(entregador.getCpf())) {
 				entregadores[i] = entregador;
+				i=index;
+			}
 			else if (i == index - 1)
 				throw new EntregadorNaoEncontradoException();
 		}
-	}
-	public boolean observando() throws EntregadorNaoExisteException{
-		if(index!=0) {
-			return true;
-		}
-		else {
-			throw new EntregadorNaoExisteException();
-		}
-	}
+	}	
 }

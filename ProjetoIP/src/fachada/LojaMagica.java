@@ -81,10 +81,12 @@ public class LojaMagica {
 	/// ENTREGADOR ////////////////////
 
 	public void cadastrarEntregador(Entregador Entregadores) throws EntregadorJaCadastroException {
-		if (!this.entregador.verificarEntregador(Entregadores.getCpf())) {
-			this.entregador.inserirEntregador(Entregadores);
+		if (this.entregador.verificarEntregador(Entregadores.getCpf())) {
+			EntregadorJaCadastroException e;
+			e = new EntregadorJaCadastroException();
+			throw e;
 		} else {
-			throw new EntregadorJaCadastroException();
+			this.entregador.cadastrarEntregador(Entregadores);
 		}
 	}
 

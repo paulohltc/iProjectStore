@@ -31,7 +31,7 @@ public abstract class Pessoa {
 		this.contato = contato;
 	}
 
-	public String getContato(String contato) {
+	public String getContato() {
 		return contato;
 	}
 

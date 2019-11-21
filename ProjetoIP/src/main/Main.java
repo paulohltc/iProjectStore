@@ -19,7 +19,8 @@ public class Main {
 			EntregadorNaoEncontradoException, FuncionarioInexistenteException, FuncionarioJaCadastradoException,
 			ExisteVendaException, NaoExisteException {
 		Scanner in = new Scanner(System.in);
-
+		boolean MercadoriaExiste = false;
+		boolean EntregadorExiste = false;
 		int entrada = 0, tipoPessoa = 0;
 
 		Mercadoria objetoMercadoria;
@@ -42,11 +43,11 @@ public class Main {
 		// RepositorioCliente repoCliente = new RepositorioArrayCliente();
 		// RepositorioEntregadores repoEntregador = new RepositorioEntregadoresArray();
 		// RepositorioFuncionarios repoFuncionarios = new
-		// RepoositorioFuncionariosArray();
+		// RepositorioFuncionariosArray();
 		// VendasInterface repoVendas = new RepositorioArrayVendas();
 		// LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas,
-		// repoEntregador,
-		// repoCliente, repoFuncionarios);
+		// repoEntregador, repoCliente,
+		// repoFuncionarios);
 
 		System.out.println("Ola! Bem vindo a nossa Loja Magica! \n");
 
@@ -77,6 +78,7 @@ public class Main {
 					// cadastrar mercadoria
 					if (opcao == 1) {
 						in.nextLine();
+						MercadoriaExiste = true;
 						System.out.println("Para cadastrar uma mercadoria, digite o que se pede:");
 						System.out.println("Nome da mercadoria: ");
 						String nomeM = in.nextLine();
@@ -94,7 +96,7 @@ public class Main {
 							System.out.println("\n\nMercadoria cadastrada com sucesso!\n\n");
 
 						} catch (MercadoriaJaCadastradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n***ERRO***\n\n");
 							System.out.println(e.getMessage() + "\n");
 						}
 
@@ -113,7 +115,7 @@ public class Main {
 							System.out.println("\n\nMercadoria removida com sucesso!\n\n");
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n***ERRO***\n\n");
 							System.out.println(e.getMessage() + "\n");
 						}
 					}
@@ -139,7 +141,7 @@ public class Main {
 							}
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n***ERRO***\n\n");
 							System.out.println(e.getMessage() + "\n");
 						}
 
@@ -161,7 +163,7 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println("\n\n***ERRO***\n\n");
 							System.out.println(e.getMessage() + "\n");
 						}
 
@@ -181,29 +183,166 @@ public class Main {
 					System.out.println("5 - Sair \n");
 
 					opcao = in.nextInt();
+					in.nextLine();
 
 					// cadastro venda
 					if (opcao == 1) {
-
+						if (EntregadorExiste) {
+							if (MercadoriaExiste) {
+								System.out.println("Para comprar um produto, digite o que se pede:");
+								System.out.println("digite o cpf do entregador");
+								String cpf = in.nextLine();
+								in.nextLine();
+								System.out.println("digite o id da mercadoria");
+								int id = Integer.parseInt(in.nextLine());
+								System.out.println("Digite o Id da venda: ");
+								String idvenda = in.nextLine();
+								System.out.println("Digite o local de entrega: ");
+								String localdeEntrega = in.nextLine();
+								if (localdeEntrega.length() > 10) {
+									localdeEntrega = localdeEntrega.substring(0, 10);
+									System.out
+											.println("voce morava longe demais, agora voce mora em " + localdeEntrega);
+									
+								}
+								try {
+									Entregador objentregador=lojaMagica.procurarEntregador(cpf);
+									cpf = objentregador.getCpf();
+									try {
+										Mercadoria objmercadoria = lojaMagica.procurarMercadoria(id);
+										int MercadoriaId = lojaMagica.procurarMercadoria(id).getId();
+										try {
+											Vendas objVenda = new Vendas(idvenda, localdeEntrega);
+											objVenda.setCost(objVenda.getDistance(), 0.0,
+													lojaMagica.procurarEntregador(cpf).getPrecoPorDistancia());
+											lojaMagica.inserirVenda(objVenda);
+											System.out.println("\n\nVenda concluida com sucesso!\n\n");
+										} catch (ExisteVendaException e) {
+											System.out.println("\n\n***ERRO***\n\n");
+											System.out.println(e.getMessage() + "\n");
+											System.out.println("\n\n***ERRO***\n\n");
+										}
+									} catch (MercadoriaNaoEncontradaException e) {
+										System.out.println("\n\n***ERRO***\n\n");
+										System.out.println(e.getMessage() + "\n");
+										System.out.println("\n\n***ERRO***\n\n");
+									}
+								} catch (EntregadorNaoEncontradoException e) {
+									System.out.println("\n\n***ERRO***\n\n");
+									System.out.println(e.getMessage() + "\n");
+									System.out.println("\n\n***ERRO***\n\n");
+								}
+							} else {
+								System.out.println("\n\n***ERRO***\n\n");
+								System.out.println("Nao existe nenhuma mercadoria\n");
+								System.out.println("\n\n***ERRO***\n\n");
+							}
+						} else {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("Nao existe nenhum entregador\n");
+							System.out.println("\n\n***ERRO***\n\n");
+						}
 					}
 
 					// remover venda
 					if (opcao == 2) {
+						System.out.println("Para descomprar uma venda, digite o que se pede:");
+						System.out.println("Identificador da venda");
+						String idV = in.nextLine();
 
+						try {
+
+							lojaMagica.removerVenda(idV);
+							System.out.println("\n\nMercadoria removida com sucesso!\n\n");
+
+						} catch (NaoExisteException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n***ERRO***\n\n");
+						}
 					}
 
 					// atualizar venda
 					if (opcao == 3) {
-
+						if (EntregadorExiste) {
+							if (MercadoriaExiste) {
+								System.out.println("Para comprar um novo produto, digite o que se pede:");
+								System.out.println("digite o novo cpf do entregador");
+								String cpf = in.nextLine();
+								in.nextLine();
+								System.out.println("digite o novo id da mercadoria");
+								int id = Integer.parseInt(in.nextLine());
+								System.out.println("Digite o novo Id da venda: ");
+								String idvenda = in.nextLine();
+								System.out.println("Digite o novo local de entrega: ");
+								String localdeEntrega = in.nextLine();
+								if (localdeEntrega.length() > 10) {
+									localdeEntrega = localdeEntrega.substring(0, 10);
+									System.out
+											.println("voce morava longe demais, agora voce mora em " + localdeEntrega);
+									
+								}
+								try {
+									Entregador objentregador=lojaMagica.procurarEntregador(cpf);
+									cpf = objentregador.getCpf();
+									try {
+										Mercadoria objmercadoria = lojaMagica.procurarMercadoria(id);
+										int MercadoriaId = lojaMagica.procurarMercadoria(id).getId();
+										try {
+											Vendas objVenda = new Vendas(idvenda, localdeEntrega);
+											objVenda.setCost(objVenda.getDistance(), 0.0,
+													lojaMagica.procurarEntregador(cpf).getPrecoPorDistancia());
+											lojaMagica.inserirVenda(objVenda);
+											System.out.println("\n\nVenda atualizada com sucesso!\n\n");
+										} catch (ExisteVendaException e) {
+											System.out.println("\n\n***ERRO***\n\n");
+											System.out.println(e.getMessage() + "\n");
+											System.out.println("\n\n***ERRO***\n\n");
+										}
+									} catch (MercadoriaNaoEncontradaException e) {
+										System.out.println("\n\n***ERRO***\n\n");
+										System.out.println(e.getMessage() + "\n");
+										System.out.println("\n\n***ERRO***\n\n");
+									}
+								} catch (EntregadorNaoEncontradoException e) {
+									System.out.println("\n\n***ERRO***\n\n");
+									System.out.println(e.getMessage() + "\n");
+									System.out.println("\n\n***ERRO***\n\n");
+								}
+							} else {
+								System.out.println("\n\n***ERRO***\n\n");
+								System.out.println("Nao existe nenhuma mercadoria\n");
+								System.out.println("\n\n***ERRO***\n\n");
+							}
+						} else {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("Nao existe nenhum entregador\n");
+							System.out.println("\n\n***ERRO***\n\n");
+						}
 					}
-
 					// procurar venda
 					if (opcao == 4) {
+						System.out.println("Para procurar uma venda, digite o que se pede: ");
+						System.out.println("Identificador da venda");
+						String idV = in.nextLine();
+
+						try {
+
+							Vendas vendaquetuque = lojaMagica.procurarVenda(idV);
+							System.out.println("Id da venda: " + vendaquetuque.getSaleid());
+							System.out.println("Custo total: " + vendaquetuque.getCost());
+							System.out.println("Distancia da entrega do produto: " + vendaquetuque.getDistance());
+							System.out.println("Sua Casa: " + vendaquetuque.getDeliver());
+							System.out.println("\n\n");
+
+						} catch (NaoExisteException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+						}
 
 					}
 				}
 			}
-
 			// entregadores
 			if (entrada == 3) {
 				while (opcao != 5) {
@@ -218,21 +357,103 @@ public class Main {
 
 					// cadastrar entregador
 					if (opcao == 1) {
+						in.nextLine();
+						EntregadorExiste = true;
+						System.out.println("Para cadastrar um entregador, digite o que se pede:");
+						System.out.println("Nome do entregador: ");
+						String nomeE = in.nextLine();
+						System.out.println("CPF do entregador: ");
+						String cpfE = in.nextLine();
+						System.out.println("Contato do entregador: ");
+						String contatoE = in.nextLine();
+						System.out.println("Transporte do entregador: ");
+						String transporteE = in.nextLine();
+						System.out.println("Preco por distancia do entregador");
+						double precodistE = in.nextDouble();
+
+						try {
+
+							Entregador objEntregador = new Entregador(nomeE, cpfE, contatoE, transporteE, precodistE);
+							lojaMagica.cadastrarEntregador(objEntregador);
+							System.out.println("\n\nEntregador cadastrado com sucesso!\n\n");
+
+						} catch (EntregadorJaCadastroException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+						}
 
 					}
 
 					// remover entregador
 					if (opcao == 2) {
+						in.nextLine();
+						System.out.println("Para remover um entregador, digite o que se pede:");
+						System.out.println("CPF do entregador");
+						String cpfE = in.nextLine();
+
+						try {
+
+							lojaMagica.removerEntregador(cpfE);
+							System.out.println("\n\nEntregador removido com sucesso!\n\n");
+
+						} catch (EntregadorNaoEncontradoException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+						}
 
 					}
 
 					// atualizar entregador
 					if (opcao == 3) {
+						in.nextLine();
+						System.out.println("Para atualizar um entregador, digite o que se pede: ");
+						System.out.println("CPF do entregador");
+						String cpfE = in.nextLine();
+
+						try {
+							if (lojaMagica.verificarEntregador(cpfE)) {
+								System.out.println("Insira o novo nome do Entregador");
+								String nomeE = in.nextLine();
+								System.out.println("Insira o novo contato do Entregador");
+								String contatoE = in.nextLine();
+								System.out.println("Insira o novo transporte do Entregador");
+								String transporteE = in.nextLine();
+								System.out.println("Insira o novo preco por distancia do Entregador");
+								double precodistE = in.nextDouble();
+								Entregador objEntregador = new Entregador(nomeE, cpfE, contatoE, transporteE,
+										precodistE);
+								lojaMagica.atualizarEntregador(objEntregador);
+								System.out.println("\n\nEntregador atualizado com sucesso!\n\n");
+							}
+
+						} catch (EntregadorNaoEncontradoException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+						}
 
 					}
 
 					// procurar entregador
 					if (opcao == 4) {
+						in.nextLine();
+						System.out.println("Para procurar um Entregador, digite o que se pede: ");
+						System.out.println("CPF do Entregador");
+						String cpfE = in.nextLine();
+
+						try {
+
+							Entregador entregadorProcurado = lojaMagica.procurarEntregador(cpfE);
+							System.out.println("\n\nNome do entregador: " + entregadorProcurado.getNome());
+							System.out.println("Contato do entregador: " + entregadorProcurado.getContato());
+							System.out.println("Transporte do entregador: " + entregadorProcurado.getTransporte());
+							System.out.println(
+									"Preco por distancia do entregador: " + entregadorProcurado.getPrecoPorDistancia());
+							System.out.println("\n\n");
+
+						} catch (EntregadorNaoEncontradoException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+						}
 
 					}
 
@@ -289,21 +510,101 @@ public class Main {
 
 					// cadastrar cliente
 					if (opcao == 1) {
+						in.nextLine();
+						System.out.println("Para cadastrar uma cliente, digite o que se pede:");
+						System.out.println("Nome do cliente: ");
+						String nomeC = in.nextLine();
+						System.out.println("CPF do cliente: ");
+						String cpfC = in.nextLine();
+						System.out.println("Especie do cliente: ");
+						String especieC = in.nextLine();
+						System.out.println("Contato do cliente");
+						String contatoC = in.nextLine();
+
+						try {
+
+							Cliente objCliente = new Cliente(nomeC, cpfC, especieC, contatoC);
+							lojaMagica.cadastrarCliente(objCliente);
+							System.out.println("\n\nCliente cadastrado com sucesso!\n\n");
+
+						} catch (ClienteJaCadastradoException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n***ERRO***\n\n");
+						}
 
 					}
 
 					// remover cliente
 					if (opcao == 2) {
+						in.nextLine();
+
+						System.out.println("Para remover um cliente, digite o que se pede:");
+						System.out.println("CPF do cliente: ");
+						String cpfC = in.nextLine();
+
+						try {
+
+							lojaMagica.removerCliente(cpfC);
+							System.out.println("\n\nCliente removido com sucesso!\n\n");
+
+						} catch (ClienteNaoEncontradoException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n***ERRO***\n\n");
+						}
 
 					}
 
 					// atualizar cliente
 					if (opcao == 3) {
+						in.nextLine();
+						System.out.println("Para atualizar um cliente, digite o que se pede: ");
+						System.out.println("CPF do cliente");
+						String cpfC = in.nextLine();
+
+						try {
+							if (lojaMagica.verificarCliente(cpfC)) {
+								System.out.println("Insira o novo nome do cliente:");
+								String nomeC = in.nextLine();
+								System.out.println("Insira a nova especie do cliente:");
+								String especieC = in.nextLine();
+								System.out.println("Insira o novo contato do cliente:");
+								String contatoC = in.nextLine();
+								Cliente objCliente = new Cliente(nomeC, cpfC, especieC, contatoC);
+								lojaMagica.atualizarCliente(objCliente);
+								System.out.println("\n\nCliente atualizado com sucesso!\n\n");
+							}
+
+						} catch (ClienteNaoEncontradoException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n***ERRO***\n\n");
+						}
 
 					}
 
 					// procurar cliente
 					if (opcao == 4) {
+						in.nextLine();
+						System.out.println("Para procurar um cliente, digite o que se pede: ");
+						System.out.println("CPF do cliente:");
+						String cpfC = in.nextLine();
+
+						try {
+
+							Cliente clienteProcurado = lojaMagica.procurarCliente(cpfC);
+							System.out.println("Nome do cliente: " + clienteProcurado.getNome());
+							System.out.println("CPF do cliente: " + clienteProcurado.getCpf());
+							System.out.println("Especie do cliente: " + clienteProcurado.getEspecie());
+							System.out.println("Contato do cliente: " + clienteProcurado.getContato());
+							System.out.println("\n\n");
+
+						} catch (ClienteNaoEncontradoException e) {
+							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n***ERRO***\n\n");
+						}
 
 					}
 				}

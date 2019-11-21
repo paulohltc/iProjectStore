@@ -1,5 +1,10 @@
 package entregador;
 
+import mercadoria.RepositorioMercadoriaLista;
+import vendas.ExisteVendaException;
+import vendas.NaoExisteException;
+import vendas.RepositorioListaVendas;
+import vendas.Vendas;
 
 public class RepositorioEntregadoresLista implements RepositorioEntregadores {
 	private Entregador entregador;
@@ -16,17 +21,12 @@ public class RepositorioEntregadoresLista implements RepositorioEntregadores {
 	}
 
 	public void inserirEntregador(Entregador entregador) throws EntregadorJaCadastroException {
-		if (this.entregador.equals(entregador)) {
-			throw new EntregadorJaCadastroException();
-		}
-		if (this.next == null) {
-			if (this.entregador == null) {
-				this.entregador = entregador;
-			} else {
-				this.next = new RepositorioEntregadoresLista(entregador);
-			}
+		if (this.entregador == null) {
+			this.entregador = entregador;
+			this.next = new RepositorioEntregadoresLista();
 		} else {
 			this.next.inserirEntregador(entregador);
+
 		}
 	}
 
@@ -50,7 +50,7 @@ public class RepositorioEntregadoresLista implements RepositorioEntregadores {
 	}
 
 	public void atualizarEntregador(Entregador entregador) throws EntregadorNaoEncontradoException {
-		if(this.entregador.getCpf()==entregador.getCpf()) {
+		if(this.entregador!=null&&this.entregador.getCpf().equals(entregador.getCpf())) {
 			this.entregador=entregador;
 		}
 		else if(this.next!=null) {
@@ -61,14 +61,15 @@ public class RepositorioEntregadoresLista implements RepositorioEntregadores {
 		}
 	}
 	
-	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException {
-		while (this.entregador != null) {
-			if (this.entregador.getCpf().equals(cpf)) {
-				return this.entregador;
-			}
-			this.next.procurarEntregador(cpf);
+	public Entregador procurarEntregador(String cpf) throws EntregadorNaoEncontradoException{
+		if(this.entregador!=null&&this.entregador.getCpf().equals(cpf)) {
+			return entregador;
 		}
-		throw new EntregadorNaoEncontradoException();			
+		else if(this.next==null)
+			throw new EntregadorNaoEncontradoException();
+		else {
+			return this.next.procurarEntregador(cpf);
+		}
 	}
 	
 

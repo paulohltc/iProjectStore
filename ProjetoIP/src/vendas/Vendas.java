@@ -11,10 +11,10 @@ public class Vendas {
 		this.deliver = deliver;
 		this.cost = 0.0;
 		int aux = 0;
+		this.distance=(long)1;
 		while (aux < this.deliver.length() && aux <= 10) {
 			this.distance *= Character.getNumericValue(deliver.charAt(0));
 			aux++;
-			this.cost = 0.0;
 		}
 	}
 
@@ -47,7 +47,7 @@ public class Vendas {
 		return cost;
 	}
 
-	public void setCost(Long distance, double price, double entregador, int quantidade) {
-		this.cost = distance * entregador + price * quantidade;
+	public void setCost(Long distance, double price, double entregador) {
+		this.cost = distance * entregador + price;
 	}
 }

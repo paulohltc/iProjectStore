@@ -17,7 +17,7 @@ public class RepositorioMercadoriaArray implements RepositorioMercadoria {
 		for (int i = 0; i <= index; i++) {
 			if (i < index)
 				aux[i] = arrayMercadorias[i];
-			else if(i!=index&&arrayMercadorias[i].equals(mercadoria)) {
+			else if(i!=index&&arrayMercadorias[i].getId()==(mercadoria.getId())) {
 				i=index+1;
 				throw new MercadoriaJaCadastradaException();
 			}

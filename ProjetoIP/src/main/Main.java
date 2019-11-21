@@ -160,7 +160,7 @@ public class Main {
 						try {
 
 							Mercadoria mercadoriaProcurada = lojaMagica.procurarMercadoria(idM);
-							System.out.println("Nome da mercadoria: " + mercadoriaProcurada.getNome());
+							System.out.println("\n\nNome da mercadoria: " + mercadoriaProcurada.getNome());
 							System.out.println("Descricao da mercadoria: " + mercadoriaProcurada.getDescricao());
 							System.out.println("Preco da mercadoria: " + mercadoriaProcurada.getPreco());
 							System.out.println("\n\n");
@@ -196,7 +196,6 @@ public class Main {
 								System.out.println("Para comprar um produto, digite o que se pede:");
 								System.out.println("digite o cpf do entregador");
 								String cpf = in.nextLine();
-								in.nextLine();
 								System.out.println("digite o id da mercadoria");
 								int id = Integer.parseInt(in.nextLine());
 								System.out.println("Digite o Id da venda: ");
@@ -333,7 +332,7 @@ public class Main {
 						try {
 
 							Vendas vendaquetuque = lojaMagica.procurarVenda(idV);
-							System.out.println("Id da venda: " + vendaquetuque.getSaleid());
+							System.out.println("\n\nId da venda: " + vendaquetuque.getSaleid());
 							System.out.println("Custo total: " + vendaquetuque.getCost());
 							System.out.println("Distancia da entrega do produto: " + vendaquetuque.getDistance());
 							System.out.println("Sua Casa: " + vendaquetuque.getDeliver());
@@ -566,8 +565,8 @@ public class Main {
 						try {
 
 							Funcionarios funcionario = lojaMagica.procurarFuncionario(cpfF);
-							System.out.println("\nNome do funcionario: " + funcionario.getNome());
-							System.out.println("\nContato do funcionario: " + funcionario.getContato());
+							System.out.println("\n\nNome do funcionario: " + funcionario.getNome());
+							System.out.println("Contato do funcionario: " + funcionario.getContato());
 							System.out.println("\n\n");
 
 						} catch (FuncionarioInexistenteException e) {
@@ -679,7 +678,7 @@ public class Main {
 						try {
 
 							Cliente clienteProcurado = lojaMagica.procurarCliente(cpfC);
-							System.out.println("Nome do cliente: " + clienteProcurado.getNome());
+							System.out.println("\n\nNome do cliente: " + clienteProcurado.getNome());
 							System.out.println("CPF do cliente: " + clienteProcurado.getCpf());
 							System.out.println("Especie do cliente: " + clienteProcurado.getEspecie());
 							System.out.println("Contato do cliente: " + clienteProcurado.getContato());

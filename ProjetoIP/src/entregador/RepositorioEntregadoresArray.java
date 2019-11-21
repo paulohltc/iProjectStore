@@ -1,8 +1,5 @@
 package entregador;
 
-import vendas.NaoExisteException;
-import vendas.Vendas;
-
 public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 	private Entregador[] entregadores;
 	private int index;
@@ -37,7 +34,7 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 				aux[i] = entregadores[i+1];
 				i++;
 			}
-			else if(!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf)) {
+			else if((!removeu&&index==1&&!entregadores[i].getCpf().equals(cpf))||(!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf))) {
 			i++;
 			throw new EntregadorNaoEncontradoException();
 			}

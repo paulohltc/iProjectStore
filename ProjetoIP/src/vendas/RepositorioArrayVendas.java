@@ -33,8 +33,9 @@ public class RepositorioArrayVendas implements VendasInterface {
 				aux[i] = Repoa[i+1];
 				i++;
 			}
-			else if(!removeu&&i==size-1&&!Repoa[i+1].getSaleid().equals(saleid)) {
-			i++;	
+			else if((size==1&&!Repoa[i].getSaleid().equals(saleid))||(!removeu&&i==size-1&&!Repoa[i+1].getSaleid().equals(saleid))) {
+			i++;
+			throw new NaoExisteException();
 			}
 			else
 				aux[i] = Repoa[i];

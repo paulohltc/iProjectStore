@@ -278,6 +278,7 @@ public class Main {
 								System.out.println("Para comprar um novo produto, digite o que se pede:");
 								System.out.println("digite o novo cpf do entregador");
 								String cpf = in.nextLine();
+								in.nextLine();
 								System.out.println("digite o novo id da mercadoria");
 								int id = Integer.parseInt(in.nextLine());
 								System.out.println("Digite o novo Id da venda: ");
@@ -300,9 +301,9 @@ public class Main {
 											Vendas objVenda = new Vendas(idvenda, localdeEntrega);
 											objVenda.setCost(objVenda.getDistance(), 0.0,
 													lojaMagica.procurarEntregador(cpf).getPrecoPorDistancia());
-											lojaMagica.inserirVenda(objVenda);
+											lojaMagica.atualizarVenda(objVenda);
 											System.out.println("\n\nVenda atualizada com sucesso!\n\n");
-										} catch (ExisteVendaException e) {
+										} catch (NaoExisteException e) {
 											System.out.println("\n\n******ERRO******\n\n");
 											System.out.println(e.getMessage() + "\n");
 											System.out.println("\n\n******ERRO******\n\n");

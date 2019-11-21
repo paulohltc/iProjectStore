@@ -26,14 +26,17 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 	}
 
 	public void removerEntregador(String cpf) throws EntregadorNaoEncontradoException{
+		if(index==0) {
+			throw new EntregadorNaoEncontradoException();
+		}
 		Entregador[] aux = new Entregador[index - 1];
-		boolean removeu = false;
+		boolean removeu = false;	
 		for (int i = 0; i < index; i++) {
-			if((!removeu&&index==1&&!entregadores[i].getCpf().equals(cpf))||(index!=1&&!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf))) {
+			if((!removeu&&index==1&&!entregadores[i].getCpf().equals(cpf))||(index>1&&!removeu&&i==index-1&&!entregadores[i+1].getCpf().equals(cpf))) {
 				i++;
 				throw new EntregadorNaoEncontradoException();
 	        }
-			else if (entregadores[i].getCpf().equals(cpf)) {
+			else if (entregadores[i].getCpf().equals(cpf)||index==0) {
 				removeu=true;
 				if(i+1!=index)
 				aux[i] = entregadores[i+1];

@@ -1,5 +1,7 @@
 package vendas;
 
+import entregador.EntregadorNaoEncontradoException;
+
 public class RepositorioArrayVendas implements VendasInterface {
 	private int size = 0;
 	private Vendas [] Repoa;
@@ -25,6 +27,9 @@ public class RepositorioArrayVendas implements VendasInterface {
 	}
 
 	public void VendaRemover(String saleid) throws NaoExisteException{
+		if(size==0) {
+			throw new NaoExisteException();
+		}
 		Vendas[] aux = new Vendas[size - 1];
 		boolean removeu = false;
 		for (int i = 0; i < size; i++) {

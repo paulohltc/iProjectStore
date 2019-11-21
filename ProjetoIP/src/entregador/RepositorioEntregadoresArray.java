@@ -80,5 +80,5 @@ public class RepositorioEntregadoresArray implements RepositorioEntregadores {
 			else if (i == index - 1)
 				throw new EntregadorNaoEncontradoException();
 		}
-	}	
+}
 }

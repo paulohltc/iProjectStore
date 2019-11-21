@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="entregador/NaoExisteEntregadorException.java" kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

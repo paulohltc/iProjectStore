@@ -30,24 +30,24 @@ public class Main {
 		Vendas objetoVendas;
 
 		// lista
-		// RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaLista();
-		// RepositorioCliente repoCliente = new RepositorioListaCliente();
-		// RepositorioEntregadores repoEntregador = new RepositorioEntregadoresLista();
-		// RepositorioFuncionarios repoFuncionarios = new
-		// RepositorioFuncionariosLista();
-		// VendasInterface repoVendas = new RepositorioListaVendas();
-		// LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas,
-		// repoEntregador, repoCliente,
-		// repoFuncionarios);
+		 RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaLista();
+		 RepositorioCliente repoCliente = new RepositorioListaCliente();
+		 RepositorioEntregadores repoEntregador = new RepositorioEntregadoresLista();
+		 RepositorioFuncionarios repoFuncionarios = new
+		 RepositorioFuncionariosLista();
+		 VendasInterface repoVendas = new RepositorioListaVendas();
+		 LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas,
+		 repoEntregador, repoCliente,
+		 repoFuncionarios);
 
 		// array
-		RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaArray();
-		RepositorioCliente repoCliente = new RepositorioArrayCliente();
-		RepositorioEntregadores repoEntregador = new RepositorioEntregadoresArray();
-		RepositorioFuncionarios repoFuncionarios = new RepositorioFuncionariosArray();
-		VendasInterface repoVendas = new RepositorioArrayVendas();
-		LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas, repoEntregador, repoCliente,
-				repoFuncionarios);
+		 //RepositorioMercadoria repoMercadoria = new RepositorioMercadoriaArray();
+		 //RepositorioCliente repoCliente = new RepositorioArrayCliente();
+		 //RepositorioEntregadores repoEntregador = new RepositorioEntregadoresArray();
+		 //RepositorioFuncionarios repoFuncionarios = new RepositorioFuncionariosArray();
+		//VendasInterface repoVendas = new RepositorioArrayVendas();
+		 //LojaMagica lojaMagica = new LojaMagica(repoMercadoria, repoVendas, repoEntregador, repoCliente,
+		 //		repoFuncionarios);
 
 		System.out.println("Ola! Bem vindo a nossa Loja Magica! \n");
 

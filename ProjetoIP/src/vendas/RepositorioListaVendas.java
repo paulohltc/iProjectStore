@@ -1,5 +1,7 @@
 package vendas;
 
+import entregador.EntregadorNaoEncontradoException;
+
 public class RepositorioListaVendas implements VendasInterface{
 	private Vendas sale;
 	private RepositorioListaVendas next;
@@ -25,17 +27,11 @@ public class RepositorioListaVendas implements VendasInterface{
 		}
 	}
 	public void VendaRemover(String saleid) throws NaoExisteException{
-		if(this.sale!=null) {
-			if(saleid.equals(this.sale.getSaleid())) {
-				this.sale=this.next.sale;
-				this.next=this.next.next;
-			}
-			else if(this.next==null) {
-				throw new NaoExisteException();
-			}
-			else {
-				this.next.VendaRemover(saleid);
-			}
+		if (this.sale != null) {
+			this.sale = this.next.sale;
+			this.next = this.next.next;
+		} else {
+			throw new NaoExisteException();
 		}
 	}
 	public boolean VendaExiste(String saleid) throws NaoExisteException{

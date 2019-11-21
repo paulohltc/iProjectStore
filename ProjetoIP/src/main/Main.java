@@ -96,8 +96,9 @@ public class Main {
 							System.out.println("\n\nMercadoria cadastrada com sucesso!\n\n");
 
 						} catch (MercadoriaJaCadastradaException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -115,12 +116,13 @@ public class Main {
 							System.out.println("\n\nMercadoria removida com sucesso!\n\n");
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 					}
 
-					// atualizar preco
+					// atualizar mercadoria
 					if (opcao == 3) {
 						System.out.println("Para atualizar uma mercadoria, digite o que se pede: ");
 						System.out.println("Identificador da mercadoria");
@@ -141,8 +143,9 @@ public class Main {
 							}
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -163,8 +166,9 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (MercadoriaNaoEncontradaException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -203,10 +207,10 @@ public class Main {
 									localdeEntrega = localdeEntrega.substring(0, 10);
 									System.out
 											.println("voce morava longe demais, agora voce mora em " + localdeEntrega);
-									
+
 								}
 								try {
-									Entregador objentregador=lojaMagica.procurarEntregador(cpf);
+									Entregador objentregador = lojaMagica.procurarEntregador(cpf);
 									cpf = objentregador.getCpf();
 									try {
 										Mercadoria objmercadoria = lojaMagica.procurarMercadoria(id);
@@ -218,29 +222,29 @@ public class Main {
 											lojaMagica.inserirVenda(objVenda);
 											System.out.println("\n\nVenda concluida com sucesso!\n\n");
 										} catch (ExisteVendaException e) {
-											System.out.println("\n\n***ERRO***\n\n");
+											System.out.println("\n\n******ERRO******\n\n");
 											System.out.println(e.getMessage() + "\n");
-											System.out.println("\n\n***ERRO***\n\n");
+											System.out.println("\n\n******ERRO******\n\n");
 										}
 									} catch (MercadoriaNaoEncontradaException e) {
-										System.out.println("\n\n***ERRO***\n\n");
+										System.out.println("\n\n******ERRO******\n\n");
 										System.out.println(e.getMessage() + "\n");
-										System.out.println("\n\n***ERRO***\n\n");
+										System.out.println("\n\n******ERRO******\n\n");
 									}
 								} catch (EntregadorNaoEncontradoException e) {
-									System.out.println("\n\n***ERRO***\n\n");
+									System.out.println("\n\n******ERRO******\n\n");
 									System.out.println(e.getMessage() + "\n");
-									System.out.println("\n\n***ERRO***\n\n");
+									System.out.println("\n\n******ERRO******\n\n");
 								}
 							} else {
-								System.out.println("\n\n***ERRO***\n\n");
+								System.out.println("\n\n******ERRO******\n\n");
 								System.out.println("Nao existe nenhuma mercadoria\n");
-								System.out.println("\n\n***ERRO***\n\n");
+								System.out.println("\n\n******ERRO******\n\n");
 							}
 						} else {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println("Nao existe nenhum entregador\n");
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 					}
 
@@ -256,9 +260,9 @@ public class Main {
 							System.out.println("\n\nMercadoria removida com sucesso!\n\n");
 
 						} catch (NaoExisteException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 					}
 
@@ -280,10 +284,10 @@ public class Main {
 									localdeEntrega = localdeEntrega.substring(0, 10);
 									System.out
 											.println("voce morava longe demais, agora voce mora em " + localdeEntrega);
-									
+
 								}
 								try {
-									Entregador objentregador=lojaMagica.procurarEntregador(cpf);
+									Entregador objentregador = lojaMagica.procurarEntregador(cpf);
 									cpf = objentregador.getCpf();
 									try {
 										Mercadoria objmercadoria = lojaMagica.procurarMercadoria(id);
@@ -295,29 +299,29 @@ public class Main {
 											lojaMagica.inserirVenda(objVenda);
 											System.out.println("\n\nVenda atualizada com sucesso!\n\n");
 										} catch (ExisteVendaException e) {
-											System.out.println("\n\n***ERRO***\n\n");
+											System.out.println("\n\n******ERRO******\n\n");
 											System.out.println(e.getMessage() + "\n");
-											System.out.println("\n\n***ERRO***\n\n");
+											System.out.println("\n\n******ERRO******\n\n");
 										}
 									} catch (MercadoriaNaoEncontradaException e) {
-										System.out.println("\n\n***ERRO***\n\n");
+										System.out.println("\n\n******ERRO******\n\n");
 										System.out.println(e.getMessage() + "\n");
-										System.out.println("\n\n***ERRO***\n\n");
+										System.out.println("\n\n******ERRO******\n\n");
 									}
 								} catch (EntregadorNaoEncontradoException e) {
-									System.out.println("\n\n***ERRO***\n\n");
+									System.out.println("\n\n******ERRO******\n\n");
 									System.out.println(e.getMessage() + "\n");
-									System.out.println("\n\n***ERRO***\n\n");
+									System.out.println("\n\n******ERRO******\n\n");
 								}
 							} else {
-								System.out.println("\n\n***ERRO***\n\n");
+								System.out.println("\n\n******ERRO******\n\n");
 								System.out.println("Nao existe nenhuma mercadoria\n");
-								System.out.println("\n\n***ERRO***\n\n");
+								System.out.println("\n\n******ERRO******\n\n");
 							}
 						} else {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println("Nao existe nenhum entregador\n");
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 					}
 					// procurar venda
@@ -336,8 +340,9 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (NaoExisteException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -378,8 +383,9 @@ public class Main {
 							System.out.println("\n\nEntregador cadastrado com sucesso!\n\n");
 
 						} catch (EntregadorJaCadastroException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -397,8 +403,9 @@ public class Main {
 							System.out.println("\n\nEntregador removido com sucesso!\n\n");
 
 						} catch (EntregadorNaoEncontradoException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -427,8 +434,9 @@ public class Main {
 							}
 
 						} catch (EntregadorNaoEncontradoException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -451,8 +459,9 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (EntregadorNaoEncontradoException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -475,21 +484,92 @@ public class Main {
 
 					// cadastrar funcionario
 					if (opcao == 1) {
+						in.nextLine();
+						System.out.println("Para cadastrar um funcionario, digite o que se pede:");
+						System.out.println("Nome do funcionario: ");
+						String nomeF = in.nextLine();
+						System.out.println("CPF do funcionario: ");
+						String cpfF = in.nextLine();
+						System.out.println("Contato do funcionario: ");
+						String contatoF = in.nextLine();
+						try {
+
+							Funcionarios funcionario = new Funcionarios(nomeF, cpfF, contatoF);
+							lojaMagica.cadastrarFuncionario(funcionario);
+							System.out.println("\n\nFuncionario cadastrado com sucesso!\n\n");
+
+						} catch (FuncionarioJaCadastradoException e) {
+							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
+						}
 
 					}
 
 					// remover funcionario
 					if (opcao == 2) {
+						in.nextLine();
+						System.out.println("Para remover um funcionario, digite o que se pede:");
+						System.out.println("CPF do funcionario:");
+						String cpfF = in.nextLine();
+						Funcionarios funcionario = lojaMagica.procurarFuncionario(cpfF);
 
+						try {
+
+							lojaMagica.removerFuncionario(funcionario);
+							System.out.println("\n\nFuncionario removido com sucesso!\n\n");
+
+						} catch (FuncionarioInexistenteException e) {
+							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
+						}
 					}
 
 					// atualizar funcionario
 					if (opcao == 3) {
+						System.out.println("Para atualizar um funcionario, digite o que se pede: ");
+						System.out.println("CPF do funcionario:");
+						in.nextLine();
+						String cpfF = in.nextLine();
+						try {
+							System.out.println("Insira o novo nome do funcionario:");
+							String nomeF = in.nextLine();
+							System.out.println("Insira o novo CPF do funcionario:");
+							String newcpfF = in.nextLine();
+							System.out.println("Insira o novo contato do funcionario");
+							String contatoF = in.nextLine();
+							Funcionarios funcionario = new Funcionarios(nomeF, newcpfF, contatoF);
+							lojaMagica.atualizarFuncionario(funcionario, cpfF);
+							System.out.println("\n\nFuncionario atualizado com sucesso!\n\n");
+
+						} catch (FuncionarioInexistenteException e) {
+							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
+						}
 
 					}
 
 					// procurar funcionario
 					if (opcao == 4) {
+						in.nextLine();
+						System.out.println("Para procurar um funcionario, digite o que se pede: ");
+						System.out.println("CPF do funcionario:");
+						String cpfF = in.nextLine();
+
+						try {
+
+							Funcionarios funcionario = lojaMagica.procurarFuncionario(cpfF);
+							System.out.println("\nNome do funcionario: " + funcionario.getNome());
+							System.out.println("\nContato do funcionario: " + funcionario.getContato());
+							System.out.println("\n\n");
+
+						} catch (FuncionarioInexistenteException e) {
+							System.out.println("\n\n******ERRO******\n\n");
+							System.out.println(e.getMessage() + "\n");
+							System.out.println("\n\n******ERRO******\n\n");
+						}
 
 					}
 				}
@@ -528,9 +608,9 @@ public class Main {
 							System.out.println("\n\nCliente cadastrado com sucesso!\n\n");
 
 						} catch (ClienteJaCadastradoException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -549,9 +629,9 @@ public class Main {
 							System.out.println("\n\nCliente removido com sucesso!\n\n");
 
 						} catch (ClienteNaoEncontradoException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -577,9 +657,9 @@ public class Main {
 							}
 
 						} catch (ClienteNaoEncontradoException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}
@@ -601,9 +681,9 @@ public class Main {
 							System.out.println("\n\n");
 
 						} catch (ClienteNaoEncontradoException e) {
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 							System.out.println(e.getMessage() + "\n");
-							System.out.println("\n\n***ERRO***\n\n");
+							System.out.println("\n\n******ERRO******\n\n");
 						}
 
 					}

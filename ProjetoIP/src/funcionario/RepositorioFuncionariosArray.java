@@ -1,15 +1,14 @@
 package funcionario;
 
-
-
 public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 	private Funcionarios funcionarios[];
-	int size;
+	int size = 0;
 
 	public RepositorioFuncionariosArray() {
-		
+		funcionarios = new Funcionarios[size];
 	}
-	public void inserir(Funcionarios funcionario){
+
+	public void inserir(Funcionarios funcionario) {
 		Funcionarios[] aux = new Funcionarios[size + 1];
 		for (int i = 0; i <= size; i++) {
 			if (i < size)
@@ -21,37 +20,35 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 		funcionarios = aux;
 	}
 
-	public void remover(Funcionarios funcionario){
+	public void remover(Funcionarios funcionario) {
 		Funcionarios[] aux = new Funcionarios[size - 1];
 		boolean removeu = false;
-		for (int i = 0; i < size; i++) {
-			if (!removeu&&funcionarios[i].equals(funcionario)) {
-				removeu=true;
-				aux[i] = funcionarios[i+1];
+		for (int i = 0; i < size - 1; i++) {
+			if (!removeu && funcionarios[i].equals(funcionario)) {
+				removeu = true;
+				aux[i] = funcionarios[i + 1];
 				i++;
-			}
-			else if(!removeu&&i==size-1&&!funcionarios[i+1].equals(funcionario)) {
-			i++;	
-			}
-			else
+			} else if (!removeu && i == size - 1 && !funcionarios[i + 1].equals(funcionario)) {
+				i++;
+			} else
 				aux[i] = funcionarios[i];
 		}
 		size--;
-		funcionarios=aux;
+		funcionarios = aux;
 	}
 
-	public void atualizar (Funcionarios funcionario,String cpf){
+	public void atualizar(Funcionarios funcionario, String cpf) {
 		for (int i = 0; i < size; i++) {
 			if (funcionarios[i].getCpf().equals(cpf)) {
 				funcionarios[i] = funcionario;
-				i=size;
+				i = size;
 			}
 		}
 	}
 
 	public Funcionarios procurar(String cpf) {
 		for (int i = 0; i < size; i++) {
-			if (this.funcionarios[i].getCpf().equals(cpf) )
+			if (this.funcionarios[i].getCpf().equals(cpf))
 				return this.funcionarios[i];
 
 		}
@@ -60,9 +57,10 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 
 	public boolean existe(String cpf) {
 		for (int i = 0; i < size; i++) {
-			if(this.funcionarios[i].getCpf().equals(cpf)) {
+			if (this.funcionarios[i].getCpf().equals(cpf)) {
 				return true;
 			}
-		}return false;
+		}
+		return false;
 	}
 }

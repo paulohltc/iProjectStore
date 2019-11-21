@@ -1,4 +1,5 @@
 package funcionario;
+
 public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 	private Funcionarios funcionario;
 	private RepositorioFuncionariosLista proximo;
@@ -37,18 +38,23 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 			return null;
 	}
 
-	public void atualizar(Funcionarios funcionario,String cpf) {
-		Funcionarios removido= procurar(cpf);
-		removido=funcionario;
-			
+	public void atualizar(Funcionarios funcionario, String cpf) {
+		if (this.funcionario != null) {
+			if (this.funcionario.getCpf().equals(cpf)) {
+				this.funcionario = funcionario;
+			} else
+				this.proximo.atualizar(funcionario, cpf);
+		}
+
 	}
-	
+
 	public boolean existe(String cpf) {
-		if(this.funcionario!=null) {
-			if(this.funcionario.getCpf().equals(cpf))
+		if (this.funcionario != null) {
+			if (this.funcionario.getCpf().equals(cpf))
 				return true;
 			else
 				return this.proximo.existe(cpf);
-		} return false;
+		}
+		return false;
 	}
 }

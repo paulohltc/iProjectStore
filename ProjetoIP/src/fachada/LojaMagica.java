@@ -144,21 +144,21 @@ public class LojaMagica {
 	}
 
 	public void removerFuncionario(Funcionarios funcionario) throws FuncionarioInexistenteException {
-		if (this.funcionario.existe(funcionario.getCpf()) == false)
+		if (this.funcionario.existe(funcionario.getCpf()) == true)
 			this.funcionario.remover(funcionario);
 		else
 			throw new FuncionarioInexistenteException();
 	}
 
 	public void atualizarFuncionario(Funcionarios funcionario, String cpf) throws FuncionarioInexistenteException {
-		if (this.funcionario.existe(funcionario.getCpf()) == false)
+		if (this.funcionario.existe(cpf) == true)
 			this.funcionario.atualizar(funcionario, cpf);
 		else
 			throw new FuncionarioInexistenteException();
 	}
 
 	public Funcionarios procurarFuncionario(String cpf) throws FuncionarioInexistenteException {
-		if (this.funcionario.existe(cpf) == true)
+		if (this.funcionario.existe(cpf) == false)
 			throw new FuncionarioInexistenteException();
 
 		return this.funcionario.procurar(cpf);
